@@ -21,14 +21,14 @@ class BesoinController {
             $besoin = $repo->insererBesoin($res['values']['description'], $res['values']['quantite'], $res['values']['type'], $res['values']['ville']);
 
             if ($besoin) {
-                Flight::redirect('/besoin');
+                Flight::redirect('/dashboard');
                 return;
             }
 
             $res['errors']['description'] = 'Erreur lors de l\'insertion du besoin.';
         }
 
-        Flight::render('besoin_form', [
+        Flight::render('insererBesoin', [
             'values' => $res['values'],
             'errors' => $res['errors'],
             'success' => false
@@ -36,7 +36,7 @@ class BesoinController {
     }
 
     public static function showinsererbesoin() {
-        Flight::render('besoin_form', [
+        Flight::render('insererBesoin', [
             'values' => ['description' => '', 'quantite' => '', 'type' => '', 'ville' => ''],
             'errors' => ['description' => '', 'quantite' => '', 'type' => '', 'ville' => ''],
             'success' => false

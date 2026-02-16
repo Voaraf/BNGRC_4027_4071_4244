@@ -94,7 +94,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav me-auto">
-                        <a href="/dashboard" class="nav-item nav-link active">Dashboard</a>
+                        <a href="/dashboard" class="nav-item nav-link">Dashboard</a>
                         <a href="/insererDon" class="nav-item nav-link">Donation</a>
                         <a href="/insererBesoin" class="nav-item nav-link">Besoin</a>
                        <!-- <a href="donation.html" class="nav-item nav-link">Donation</a>
