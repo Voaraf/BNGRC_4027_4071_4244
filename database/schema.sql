@@ -48,8 +48,6 @@ CREATE TABLE IF NOT EXISTS BNGRC_donation (
   FOREIGN KEY (type_donation) REFERENCES BNGRC_type(id_type) ON DELETE CASCADE
 );
 
-
-
 CREATE TABLE IF NOT EXISTS BNGRC_distribution(
   id_distribution INT AUTO_INCREMENT PRIMARY KEY,
   id_donation INT,
