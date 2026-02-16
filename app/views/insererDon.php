@@ -19,7 +19,7 @@ require_once __DIR__ . '/header.php';
                         entina hanampiana ireo sahirana. Na kely aza ny fanomezana, 
                         dia afaka mitondra fiovana lehibe eo amin’ny fiainan’ny hafa. 
                     </p>
-                    <form action="/traitementinsererDon">
+                    <form action="/traitementinsererDon" method="post">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -38,14 +38,14 @@ require_once __DIR__ . '/header.php';
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="quantite" name="quantite" placeholder="Subject">
+                                    <input type="text" class="form-control" id="quantite" name="quantite_donnee" placeholder="Subject">
                                     <label for="quantite">Habetsahana</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Subject">
-                                    <label for="nom">Amin’ny anaran'i</label>
+                                    <input type="text" class="form-control" id="donneur" name="donneur" placeholder="Subject">
+                                    <label for="donneur">Amin’ny anaran'i</label>
                                 </div>
                             </div>
                             <div class="col-12">
