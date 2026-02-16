@@ -1,47 +1,74 @@
-    Comprendre le template 
-    Integrer le template dans Flight 
+FrontOffice:
+
+    app:
+        database:
+            base.sql:
+                -table BNGRC_user
+                -table BNGRC_ville
+                -table BNGRC_donation
+                -table BNGRC_besoin
+                -table BNGRC_besoin_categorie
+                -table BNGRC_distribution
+
+    config:
+        routes.php:
+            -route /login pour afficher le formulaire de connexion
+            -route POST /login pour traiter la connexion
+            -route /dashboard pour afficher le tableau de bord après connexion réussie
+            -route /insererBesoin pour insérer des besoin
+            -route POST /insererBesoin pour traiter l'insertion des besoin
+            -route /insererDon pour insérer des dons
+            -route POST /insererDon pour traiter l'insertion des dons
+
     
-    
-    créer page login:
-        base:
-            table user(email)  
+    controller:
+        LoginController.php:
+            -function showLogin() pour auto-login 
+            -function PostLogin() pour auto-login traitement de la connexion
+
+        DashboardController.php:
+            -function showDashboard() pour afficher le tableau de bord 
+
+        BesoinController.php:
+            -function insererBesoin() pour insérer des besoin
+
+        DonController.php:
+            -function insererDon() pour insérer des dons
         
-        repositories:
-            Usermodels.php
-                fonction insertOrFindUser
-
-        services:
-            Validator.php
-                fonction validateLogin
-
-        controllers:
-            UserControllers.php
-                fonction postLogin
-
-        view:
-            login.php
-                récuperer code dans template
-                afficher error(champ vide, format mail, etc)
-                form action vers /messages
-
-        config:
-            route.php
-                route postLogin
-    
-    envoi message entre utilisateurs et système de message lu et non lu
-        base:
-            table messages(id_messages, id_envoyeur, id_recepteur, messages_text, created_at)
-
-        repositories:
-            MessagesRepositories.php:
-                fonction insérerMessages
-                fonction getAllMessages
-                fonction markMessagesAsRead
-                fonction getUnreadCount
-
-        controllers:
-            MessagesControllers.php
 
 
-                
-mettre un bouton "rafraichir" pour avoir les nouveux messages.
+    services:
+        Validator.php:
+            -function Validator() pour valider les données d'entrée
+
+    repositories:
+        UserRepository.php:
+            -function insertOrFindByEmail() pour inserer ou trouver un utilisateur par email
+
+        DashboardRepository.php:
+            -function getDashboardData() pour récupérer les données nécessaires pour le tableau de bord
+
+        InsererRepository.php:
+            -function insererBesoin() pour insérer des besoin dans la base de données
+
+        DonRepository.php:
+            -function insererDon() pour insérer des dons dans la base de données
+
+        
+    views:
+        login.php:
+            -formulaire de connexion
+            -bouton de connexion traitement vers /login
+        dashboard.php:
+            -affichage des données du tableau de bord
+
+        insererBesoin.php:
+            -formulaire pour insérer des besoin
+            -bouton de soumission traitement vers /insererBesoin
+
+        insererDon.php:
+            -formulaire pour insérer des dons
+            -bouton de soumission traitement vers /insererDon
+
+
+
