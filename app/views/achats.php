@@ -6,19 +6,18 @@ require_once __DIR__ . '/header.php';
             <div class="row g-5">
                 <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
                     <p class="section-title bg-white text-start text-primary pe-3">Achats</p>
-                    <h1 class="display-6 mb-4 wow fadeIn" data-wow-delay="0.2s">Mila anzao izay!
+                    <h1 class="display-6 mb-4 wow fadeIn" data-wow-delay="0.2s">Fifidianana izay ilaina!
                     </h1>
                     <img class="w-100"
-                        src="assets/img/donn.png"
+                        src="assets/img/achats.png"
                         style="height: 425px; border:0;" allowfullscreen="" aria-hidden="false"
                         tabindex="0"></img>
                 </div>
                 <div class="col-lg-7 wow fadeIn" data-wow-delay="0.3s">
-                   <h3>Ny mangataka tsy mba mahamenatra, fa ny tsy mifanampy no mahamenatra.</h3>
-                    <p class="mb-4">Ity pejy ity dia natao hanehoana ireo olona sy toerana tena mila fanampiana. 
-                        Ny fangatahana dia atao amin-kitsim-po sy fahatsorana, 
-                        mba hahafahana mahazo tohana sy fanohanana avy amin’ireo vonona hanampy. 
-                        Miaraka isika no afaka manamaivana ny fahasahiranana
+                   <h3>Ny vola miasa no miteraka soa.</h3>
+                    <p class="mb-4">Ny fividianana dia dingana iray hanomezana izay ilaina sy hanatanterahana tanjona. 
+                        Eto no ahafahanao misafidy sy mividy ireo entana ilaina mba hanohanana 
+                        ny asa sy ny fanampiana atao
                     </p>
                     <form action="/traitementinsererBesoin" method="post">
                         <div class="row g-3">
@@ -30,10 +29,8 @@ require_once __DIR__ . '/header.php';
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                   <select name="ville">
-                                        <?php foreach($data as $ville) { ?>
-                                            <option value="<?= $ville['id_ville'] ?>"><?= $ville['nom_ville'] ?></option> 
-                                        <?php } ?>
+                                   <select name="besoin_ville">
+                                            <option value=""></option> 
                                     </select>
                                 </div>
                             </div>
@@ -46,9 +43,7 @@ require_once __DIR__ . '/header.php';
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <select name="type">
-                                        <?php foreach($types as $type) { ?>
-                                            <option value="<?= $type['id_type'] ?>"><?= $type['nom_type'] ?></option> 
-                                        <?php } ?>
+                                            <option value=""><</option> 
                                     </select>
                                 </div>
                             </div>

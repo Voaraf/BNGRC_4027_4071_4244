@@ -64,6 +64,8 @@ CREATE TABLE IF NOT EXISTS BNGRC_distribution(
   FOREIGN KEY (id_besoin) REFERENCES BNGRC_besoin(id_besoin) ON DELETE CASCADE
 );
 
+
+
 CREATE TABLE BNGRC_prix_unitaire (
   id_prix_unitaire INT AUTO_INCREMENT PRIMARY KEY,
   type INT,
