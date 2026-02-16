@@ -30,7 +30,7 @@ INSERT INTO BNGRC_type (nom_type) VALUES
 CREATE TABLE IF NOT EXISTS BNGRC_besoin (
   id_besoin INT AUTO_INCREMENT PRIMARY KEY,
   id_ville INT,
-  type_besoin VARCHAR(100),
+  type_besoin INT,
   besoin VARCHAR(255),
   quantite_besoin DECIMAL(10, 2),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS BNGRC_besoin (
 
 CREATE TABLE IF NOT EXISTS BNGRC_donation (
   id_donation INT AUTO_INCREMENT PRIMARY KEY,
-  type_donation VARCHAR(100),
+  type_donation INT,
   donneur VARCHAR(255),
   donation VARCHAR(255),
   quantite_donnee DECIMAL(10, 2),
