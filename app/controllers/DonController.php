@@ -7,7 +7,7 @@ class DonController {
     $pdo = Flight::db();
     $repo = new UtilRepository($pdo);
     $data = $repo->getAllVille();
-    $types = $repo->getTypeDonation();
+    $types = $repo->getType();
     Flight::render('insererDon', [
       'data' => $data,
       'types' => $types,

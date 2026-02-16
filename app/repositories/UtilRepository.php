@@ -14,7 +14,7 @@ class UtilRepository{
         return $st->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getTypeDonation() {
+    public function getType() {
         $st = $this->pdo->prepare(
             "SELECT * FROM BNGRC_type"
         );
