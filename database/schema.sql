@@ -29,12 +29,9 @@ CREATE TABLE IF NOT EXISTS BNGRC_type (
 );
 
 INSERT INTO BNGRC_type (nom_type, icone_type) VALUES 
-('Liquide', 'assets/img/besoins.png'),
-('Médicaments', 'assets/img/medicaments.png'),
-('Vêtements', 'assets/img/vetements.png'),
-('Matériel de secours', 'assets/img/materiel_secours.png'),
-('Nourriture', 'assets/img/nourriture.png'),
-('Autre', 'assets/img/autre.png');
+('Nature', 'assets/img/nourriture.png'),
+('Matériaux', 'assets/img/materiaux.png'),
+('Argent', 'assets/img/argent.png');
 
 CREATE TABLE IF NOT EXISTS BNGRC_besoin (
   id_besoin INT AUTO_INCREMENT PRIMARY KEY,

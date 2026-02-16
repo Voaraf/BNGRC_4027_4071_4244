@@ -14,6 +14,8 @@ class DashboardController {
         $pdo = Flight::db();
         $repo = new UtilRepository($pdo);
         $ville = $repo->getVilleById($id);
+        $repo = new DashboardRepository($pdo);
+        $data = $repo->getBesoinDonByVilleId($id);
 
         if (!$ville) {
             Flight::notFound();
@@ -21,7 +23,10 @@ class DashboardController {
         }
 
         Flight::render('villeById', [
-            'ville' => $ville
+            'ville' => $ville,
+            'data' => $data
         ]);
     }
+
+   
 }

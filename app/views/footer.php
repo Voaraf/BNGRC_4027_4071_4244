@@ -63,11 +63,7 @@
                         &copy; <a class="fw-semi-bold" href="#!">Your Site Name</a>, All Right Reserved.
                     </div>
                     <div class="col-md-6 text-center text-md-end">
-                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By <a class="fw-semi-bold" href="https://htmlcodex.com">HTML Codex</a>. Distributed by
-                        <a class="fw-semi-bold" href="https://themewagon.com">ThemeWagon</a>
+                        Hoy Voara, Joshua ary Lofo.  4244, 4027, 4071
                     </div>
                 </div>
             </div>
