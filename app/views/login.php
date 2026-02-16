@@ -45,9 +45,10 @@ function cls_invalid($errors, $field){ return ($errors[$field] ?? '') !== '' ? '
             <div class="row g-0">
                 <div class="col-lg-7 donate-text bg-light py-5 wow fadeIn" data-wow-delay="0.1s">
                     <div class="d-flex flex-column justify-content-center h-100 p-5 wow fadeIn" data-wow-delay="0.3s">
-                        <h1 class="display-6 mb-4">Let's Donate to Needy People for Better Lives</h1>
-                        <p class="fs-5 mb-0">Through your donations, we spread kindness and support to children,
-                            families, and communities struggling to find stability.</p>
+                        <h1 class="display-6 mb-4">Tongasoa eto amin'ny pejin'ny BNGRC-Charitize</h1>
+                        <p class="fs-5 mb-0">Fanampiana hoan'ireo olona niharan'ny loza voajanahary eto
+                          Madagasacar. Masina ny Tanindrazana.
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-5 donate-form bg-primary py-5 text-center wow fadeIn" data-wow-delay="0.5s">
@@ -56,16 +57,16 @@ function cls_invalid($errors, $field){ return ($errors[$field] ?? '') !== '' ? '
                             <div class="row g-3">
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" class="form-control <?= cls_invalid($errors,'email') ?>" value="<?= e($values['email'] ?? '') ?>">
-                                        <label for="email">Your Email</label>
+                                        <input type="email" name="email" class="form-control" id="email" placeholder="Email" class="form-control <?= cls_invalid($errors,'email') ?>" value="<?= e($values['email'] ?? '') ?>">
+                                        <label for="email">Email</label>
                                         <div class="invalid-feedback" id="emailError"><?= e($errors['email'] ?? '') ?></div>
 
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="password" name="password" class="form-control" id="password" placeholder="Your Password" class="form-control <?= cls_invalid($errors,'password') ?>" value="<?= e($values['password'] ?? '') ?>">
-                                        <label for="password">Your Password</label>
+                                        <input type="password" name="password" class="form-control" id="password" placeholder="Password" class="form-control <?= cls_invalid($errors,'password') ?>" value="<?= e($values['password'] ?? '') ?>">
+                                        <label for="password">Password</label>
                                         <div class="invalid-feedback" id="passwordError"><?= e($errors['password'] ?? '') ?></div>
                                     </div>
                                 </div>
