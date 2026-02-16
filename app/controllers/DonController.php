@@ -15,7 +15,7 @@ class DonController {
         'type_donation' => '',
         'donneur' => '',
         'donation' => '',
-        'quantite_donnee' => ''
+        'quantite_donnee' => '' 
       ],
       'errors' => [
         'type_donation' => '',
@@ -45,16 +45,7 @@ class DonController {
     if ($res['ok']) {
         $repo->insertDon($res['values']);
 
-        Flight::render('dashboard', [
-          'values' => $res['values'],
-          'errors' => [
-            'type_donation' => '',
-            'donneur' => '',
-            'donation' => '',
-            'quantite_donnee' => ''
-          ],
-          'success' => true
-        ]);
+        Flight::redirect('/dashboard');
         return;
     }
 
