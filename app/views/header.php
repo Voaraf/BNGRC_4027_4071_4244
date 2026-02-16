@@ -38,7 +38,7 @@
         <div class="row align-items-center h-100">
             <div class="col-lg-4 text-center text-lg-start">
                 <a href="index.html">
-                    <h1 class="display-5 text-primary m-0">Charitize</h1>
+                    <h1 class="display-5 text-primary m-0">BNGRC</h1>
                 </a>
             </div>
             <div class="col-lg-8 d-none d-lg-block">
@@ -94,10 +94,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav me-auto">
-                        <a href="/" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Service</a>
-                        <a href="donation.html" class="nav-item nav-link">Donation</a>
+                        <a href="/dashboard" class="nav-item nav-link active">Dashboard</a>
+                        <a href="/insererDon" class="nav-item nav-link">Donation</a>
+                        <a href="/insererBesoin" class="nav-item nav-link">Besoin</a>
+                       <!-- <a href="donation.html" class="nav-item nav-link">Donation</a>
                         <div class="nav-item dropdown">
                             <a href="#!" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu bg-light m-0">
@@ -107,8 +107,9 @@
                                 <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                                 <a href="404.html" class="dropdown-item">404 Page</a>
                             </div>
-                        </div>
+                        </div>showInsererBesoin
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        -->
                     </div>
                     <div class="d-none d-lg-flex ms-auto">
                         <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-twitter"></i></a>
@@ -120,3 +121,25 @@
         </div>
     </div>
     <!-- Navbar End -->
+    <!-- Video Start -->
+    <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-lg-11">
+                    <div class="h-100 py-5 d-flex align-items-center">
+                        <button type="button" class="btn-play" data-bs-toggle="modal"
+                            data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
+                            <span></span>
+                        </button>
+                        <h3 class="ms-5 mb-0">Miaraka isika afaka manangana tontolo iray izay ahafahan’ny tsirairay mivoatra sy mahomby</h3>
+                    </div>
+                </div>
+                <div class="d-none d-lg-block col-lg-1">
+                    <div class="h-100 w-100 bg-secondary d-flex align-items-center justify-content-center">
+                        <span class="text-white" style="transform: rotate(-90deg);">Scroll Down</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Video End -->

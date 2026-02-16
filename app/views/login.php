@@ -53,7 +53,7 @@ function cls_invalid($errors, $field){ return ($errors[$field] ?? '') !== '' ? '
                 </div>
                 <div class="col-lg-5 donate-form bg-primary py-5 text-center wow fadeIn" data-wow-delay="0.5s">
                     <div class="h-100 p-5">
-                        <form action="/dashboard" method="post">
+                        <form action="/login" method="post">
                             <div class="row g-3">
                                 <div class="col-12">
                                     <div class="form-floating">

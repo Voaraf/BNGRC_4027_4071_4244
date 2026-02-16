@@ -59,4 +59,3 @@ CREATE TABLE IF NOT EXISTS BNGRC_distribution(
   FOREIGN KEY (id_donation) REFERENCES BNGRC_donation(id_donation) ON DELETE CASCADE,
   FOREIGN KEY (id_besoin) REFERENCES BNGRC_besoin(id_besoin) ON DELETE CASCADE
 );
-

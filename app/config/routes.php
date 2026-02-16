@@ -11,10 +11,10 @@ require_once __DIR__ . '/../controllers/DashboardController.php';
 
 
 Flight::route('GET /', ['LoginController', 'showLogin']);
-Flight::route('POST /dashboard', ['LoginController', 'postLogin']);
+Flight::route('POST /login', ['LoginController', 'postLogin']);
 Flight::route('GET /dashboard', ['DashboardController', 'showDashboard']);
 
 Flight::route('GET /insererBesoin', ['BesoinController', 'showInsererBesoin']);
-Flight::route('POST /insererBesoin', ['BesoinController', 'insererBesoin']);
+Flight::route('POST /traitementinsererBesoin', ['BesoinController', 'insererBesoin']);
 Flight::route('GET /insererDon', ['DonController', 'showInsererDon']);
-Flight::route('POST /insererDon', ['DonController', 'insererDon']);
+Flight::route('POST /traitementinsererDon', ['DonController', 'insererDon']);
