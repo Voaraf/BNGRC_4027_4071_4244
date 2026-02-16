@@ -51,7 +51,7 @@ FrontOffice:
         DashboardRepository.php:
             -function getDashboardData() pour récupérer les données nécessaires pour le tableau de bord
 
-        InsererRepository.php:
+        BesoinRepository.php:
             -function insererBesoin() pour insérer des besoin dans la base de données
 
         DonRepository.php:
