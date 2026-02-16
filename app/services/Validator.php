@@ -11,13 +11,12 @@ class Validator {
       'password' => trim((string)($input['password'] ?? ''))
     ];
 
-    $password = (string)($input['password'] ?? '');
 
     if ($values['email'] === '') $errors['email'] = "L'email est obligatoire.";
     elseif (!filter_var($values['email'], FILTER_VALIDATE_EMAIL))
       $errors['email'] = "L'email n'est pas valide (ex: nom@domaine.com).";
 
-    if ($password === '') $errors['password'] = "Le mot de passe est obligatoire.";
+    if ($values['password'] === '') $errors['password'] = "Le mot de passe est obligatoire.";
 
     $ok = true;
     foreach ($errors as $m) { if ($m !== '') { $ok = false; break; } }
@@ -25,5 +24,65 @@ class Validator {
     return ['ok' => $ok, 'errors' => $errors, 'values' => $values];
   }
 
+    public static function validateDon(array $input) {
+    $errors = [
+      'type_donation' => '',
+      'donneur' => '',
+      'donation' => '',
+      'quantite_donnee' => ''
+    ];
 
+    $values = [
+      'type_donation' => trim((string)($input['type_donation'] ?? '')),
+      'donneur' => trim((string)($input['donneur'] ?? '')),
+      'donation' => trim((string)($input['donation'] ?? '')),
+      'quantite_donnee' => trim((string)($input['quantite_donnee'] ?? ''))
+    ];
+
+    if ($values['type_donation'] === '') $errors['type_donation'] = "Le type de donation est obligatoire.";
+    if ($values['donneur'] === '') $errors['donneur'] = "Le nom du donneur est obligatoire.";
+    if ($values['donation'] === '') $errors['donation'] = "La description de la donation est obligatoire.";
+    if ($values['quantite_donnee'] === '') $errors['quantite_donnee'] = "La quantité donnée est obligatoire.";
+    elseif (!is_numeric($values['quantite_donnee']) || $values['quantite_donnee'] <= 0) {
+      $errors['quantite_donnee'] = "La quantité doit être un nombre positif.";
+    }
+
+    $ok = true;
+    foreach ($errors as $m) { if ($m !== '') { $ok = false; break; } }
+
+    return ['ok' => $ok, 'errors' => $errors, 'values' => $values];
+  }
+
+  public static function validateBesoin(array $input) {
+    $errors = [
+      'type' => '',
+      'description' => '',
+      'quantite' => '',
+      'ville' => ''
+    ];
+
+    $values = [
+      'type' => trim((string)($input['type'] ?? '')),
+      'description' => trim((string)($input['description'] ?? '')),
+      'quantite' => trim((string)($input['quantite'] ?? '')),
+      'ville' => trim((string)($input['ville'] ?? ''))
+    ];
+
+    if ($values['type'] === '') $errors['type'] = "Le type de besoin est obligatoire.";
+    if ($values['description'] === '') $errors['description'] = "La description du besoin est obligatoire.";
+    if ($values['quantite'] === '') $errors['quantite'] = "La quantité de besoin est obligatoire.";
+    elseif (!is_numeric($values['quantite']) || $values['quantite'] <= 0) {
+      $errors['quantite'] = "La quantité doit être un nombre positif.";
+    }
+    if ($values['ville'] === '') $errors['ville'] = "La ville est obligatoire.";
+    elseif (!is_numeric($values['ville'])) {
+      $errors['ville'] = "La ville doit être un identifiant numérique.";
+    }
+
+    $ok = true;
+    foreach ($errors as $m) { if ($m !== '') { $ok = false; break; } }
+
+    return ['ok' => $ok, 'errors' => $errors, 'values' => $values];
+  }
+  
 }
