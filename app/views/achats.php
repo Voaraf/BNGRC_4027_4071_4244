@@ -6,7 +6,7 @@ require_once __DIR__ . '/header.php';
             <div class="row g-5">
                 <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
                     <p class="section-title bg-white text-start text-primary pe-3">Achats</p>
-                    <h1 class="display-6 mb-4 wow fadeIn" data-wow-delay="0.2s">Fifidianana izay ilaina!
+                    <h1 class="display-6 mb-4 wow fadeIn" data-wow-delay="0.2s">Fividianana izay ilaina!
                     </h1>
                     <img class="w-100"
                         src="assets/img/achats.png"
@@ -22,10 +22,10 @@ require_once __DIR__ . '/header.php';
                     <form action="/traitementinsererBesoin" method="post">
                         <div class="row g-3">
                             <div class="col-md-12">
-                                <div class="form-floating">
+                                <div class="form-floating" >
                                    <select name="besoin_ville" class="form-select" >
                                         <?php foreach ($besoin as $b): ?>
-                                            <option value="<?= $b['id_ville'] ?>"><?= $b['besoin'] ?>-<?= $b['nom_ville'] ?></option>
+                                            <option value="<?= $b['id_ville'] ?>"><?= $b['besoin'] ?>---<?= $b['nom_ville'] ?>---<?= $b['quantite_besoin'] ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>

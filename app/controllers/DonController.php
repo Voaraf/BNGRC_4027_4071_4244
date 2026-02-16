@@ -30,6 +30,7 @@ class DonController {
   public static function insererDon() {
     $pdo  = Flight::db();
     $repo = new DonRepository($pdo);
+    $stockageRepo = new StockageRepository($pdo);
 
     $req = Flight::request();
 
@@ -44,6 +45,8 @@ class DonController {
 
     if ($res['ok']) {
         $repo->insertDon($res['values']);
+        $stockageRepo->ajouterStock($res['values']['donation'], $res['values']['id_ville'], $res['values']['type_donation'], $res['values']['quantite_donnee']);
+
 
         Flight::redirect('/dashboard');
         return;

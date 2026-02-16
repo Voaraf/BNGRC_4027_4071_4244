@@ -85,4 +85,32 @@ class Validator {
     return ['ok' => $ok, 'errors' => $errors, 'values' => $values];
   }
   
+  public static function validateAchat(array $input) {
+    $errors = [
+      'besoin_ville' => '',
+      'quantite' => '',
+      'type' => ''
+    ];
+
+    $values = [
+      'besoin_ville' => trim((string)($input['besoin_ville'] ?? '')),
+      'quantite' => trim((string)($input['quantite'] ?? '')),
+      'type' => trim((string)($input['type'] ?? ''))
+    ];
+
+    if ($values['besoin_ville'] === '') $errors['besoin_ville'] = "Le besoin et la ville sont obligatoires.";
+    if ($values['quantite'] === '') $errors['quantite'] = "La quantité est obligatoire.";
+    elseif (!is_numeric($values['quantite']) || $values['quantite'] <= 0) {
+      $errors['quantite'] = "La quantité doit être un nombre positif.";
+    }
+    if ($values['type'] === '') $errors['type'] = "Le type est obligatoire.";
+    elseif (!is_numeric($values['type'])) {
+      $errors['type'] = "Le type doit être un identifiant numérique.";
+    }
+
+    $ok = true;
+    foreach ($errors as $m) { if ($m !== '') { $ok = false; break; } }
+
+    return ['ok' => $ok, 'errors' => $errors, 'values' => $values];
+  }
 }

@@ -10,13 +10,15 @@ class DonRepository {
         $st = $this->pdo->prepare(
             "INSERT INTO BNGRC_donation (type_donation, donneur, donation, quantite_donnee) VALUES (?, ?, ?, ?)"
         );
+        $donation_normalisee = strtolower(trim($data['donation']));
         $st->execute([
             $data['type_donation'],
             $data['donneur'],
-            $data['donation'],
+            $donation_normalisee,
             $data['quantite_donnee']
         ]);
 
+        
         return $this->pdo->lastInsertId();
     }
 
