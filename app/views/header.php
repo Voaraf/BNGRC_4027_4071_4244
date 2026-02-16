@@ -100,6 +100,8 @@
                         <a href="/insererDon" class="nav-item nav-link">Donation</a>
                         <a href="/insererBesoin" class="nav-item nav-link">Besoin</a>
                         <a href="/achats" class="nav-item nav-link">Achats</a>
+                        <a href="/insererDistribution" class="nav-item nav-link">Distribution</a>
+
                        <!-- <a href="donation.html" class="nav-item nav-link">Donation</a>
                         <div class="nav-item dropdown">
                             <a href="#!" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
