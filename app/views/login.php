@@ -45,9 +45,9 @@ function cls_invalid($errors, $field){ return ($errors[$field] ?? '') !== '' ? '
             <div class="row g-0">
                 <div class="col-lg-7 donate-text bg-light py-5 wow fadeIn" data-wow-delay="0.1s">
                     <div class="d-flex flex-column justify-content-center h-100 p-5 wow fadeIn" data-wow-delay="0.3s">
-                        <h1 class="display-6 mb-4">Tongasoa eto amin'ny pejin'ny BNGRC-Charitize</h1>
-                        <p class="fs-5 mb-0">Fanampiana hoan'ireo olona niharan'ny loza voajanahary eto
-                          Madagasacar. Masina ny Tanindrazana.
+                        <h1 class="display-6 mb-4">Tongasoa eto amin'ny pejin'ny BNGRC</h1>
+                        <p class="fs-5 mb-0">Andao hifanome tanana, haneho firaisankina ary hanampy ireo rahalahy sy anabavintsika tratran’ny loza.
+Ny firaisankina no hery. Ny fanomezana no aina.
                         </p>
                     </div>
                 </div>
