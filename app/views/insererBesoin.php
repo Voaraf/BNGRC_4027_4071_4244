@@ -20,7 +20,7 @@ require_once __DIR__ . '/header.php';
                         mba hahafahana mahazo tohana sy fanohanana avy amin’ireo vonona hanampy. 
                         Miaraka isika no afaka manamaivana ny fahasahiranana
                     </p>
-                    <form action="/traitementinsererBesoin">
+                    <form action="/traitementinsererBesoin" method="post">
                         <div class="row g-3">
                              <div class="col-md-6">
                                 <div class="form-floating">
