@@ -1,0 +1,18 @@
+CREATE DATABASE IF NOT EXISTS adminct CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE adminct;
+
+CREATE TABLE IF NOT EXISTS users (
+  id_users INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS messages (
+  id_messages INT AUTO_INCREMENT PRIMARY KEY,
+  id_envoyeur INT, 
+  id_recepteur INT, 
+  messages_text VARCHAR(500), 
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  lu TINYINT(1) DEFAULT 0
+);
+drop TABLE IF EXISTS messages;

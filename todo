@@ -1,0 +1,47 @@
+    Comprendre le template 
+    Integrer le template dans Flight 
+    
+    
+    créer page login:
+        base:
+            table user(email)  
+        
+        repositories:
+            Usermodels.php
+                fonction insertOrFindUser
+
+        services:
+            Validator.php
+                fonction validateLogin
+
+        controllers:
+            UserControllers.php
+                fonction postLogin
+
+        view:
+            login.php
+                récuperer code dans template
+                afficher error(champ vide, format mail, etc)
+                form action vers /messages
+
+        config:
+            route.php
+                route postLogin
+    
+    envoi message entre utilisateurs et système de message lu et non lu
+        base:
+            table messages(id_messages, id_envoyeur, id_recepteur, messages_text, created_at)
+
+        repositories:
+            MessagesRepositories.php:
+                fonction insérerMessages
+                fonction getAllMessages
+                fonction markMessagesAsRead
+                fonction getUnreadCount
+
+        controllers:
+            MessagesControllers.php
+
+
+                
+mettre un bouton "rafraichir" pour avoir les nouveux messages.
