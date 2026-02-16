@@ -20,7 +20,7 @@ require_once __DIR__ . '/header.php';
                         mba hahafahana mahazo tohana sy fanohanana avy amin’ireo vonona hanampy. 
                         Miaraka isika no afaka manamaivana ny fahasahiranana
                     </p>
-                    <form action="/traitementinsererBesoin" method="post">
+                    <form action="/traitementinsererDistribution" method="post">
                         <div class="row g-3">
                              <div class="col-md-6">
                                 <div class="form-floating">
@@ -43,7 +43,6 @@ require_once __DIR__ . '/header.php';
                                     <label for="quantite">Habetsahany</label>
                                 </div>
                             </div>
-                          
                             <div class="col-12">
                                 <button class="btn btn-primary py-3 px-4" type="submit">Insérer</button>
                             </div>
