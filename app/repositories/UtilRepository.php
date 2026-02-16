@@ -21,4 +21,13 @@ class UtilRepository{
         $st->execute();
         return $st->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getVilleById($id) {
+        $st = $this->pdo->prepare(
+            "SELECT * FROM BNGRC_ville WHERE id = ?"
+        );
+        $st->execute([$id]);
+        return $st->fetch(PDO::FETCH_ASSOC);
+        
+    }
 }

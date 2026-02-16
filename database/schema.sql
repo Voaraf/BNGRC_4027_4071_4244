@@ -13,6 +13,13 @@ CREATE TABLE IF NOT EXISTS BNGRC_ville (
   image_ville VARCHAR(255)
 );
 
+INSERT INTO BNGRC_ville (nom_ville, image_ville) VALUES 
+('Antananarivo', 'assets/img/antananarivo.png'),
+('Toamasina', 'assets/img/toamasina.png'),
+('Fianarantsoa', 'assets/img/fianarantsoa.png'),
+('Mahajanga', 'assets/img/mahajanga.png'),
+('Toliara', 'assets/img/toliara.png'),
+('Antsirabe', 'assets/img/antsirabe.png');
 CREATE TABLE IF NOT EXISTS BNGRC_type (
   id_type INT AUTO_INCREMENT PRIMARY KEY,
   nom_type VARCHAR(100) UNIQUE

@@ -2,8 +2,8 @@
 class DashboardController {
     public static function showDashboard() {
         $pdo = Flight::db();
-        $repo = new DashboardRepository($pdo);
-        $data = $repo->getDashboardData();
+        $repo = new UtilRepository($pdo);
+        $data = $repo->getAllVille();
 
         Flight::render('dashboard', [
             'data' => $data
