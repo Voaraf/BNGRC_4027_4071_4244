@@ -22,3 +22,4 @@ Flight::route('POST /traitementinsererBesoin', ['BesoinController', 'insererBeso
 Flight::route('GET /insererDon', ['DonController', 'showInsererDon']);
 Flight::route('POST /traitementinsererDon', ['DonController', 'insererDon']);
 
+Flight::route('GET /ville/@id', ['DashboardController', 'showVilleById']);

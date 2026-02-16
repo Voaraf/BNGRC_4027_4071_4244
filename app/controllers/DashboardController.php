@@ -10,4 +10,18 @@ class DashboardController {
         ]);
     }
     
+    public static function showVilleById($id) {
+        $pdo = Flight::db();
+        $repo = new UtilRepository($pdo);
+        $ville = $repo->getVilleById($id);
+
+        if (!$ville) {
+            Flight::notFound();
+            return;
+        }
+
+        Flight::render('villeById', [
+            'ville' => $ville
+        ]);
+    }
 }

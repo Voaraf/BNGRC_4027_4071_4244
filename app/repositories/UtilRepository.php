@@ -24,7 +24,7 @@ class UtilRepository{
 
     public function getVilleById($id) {
         $st = $this->pdo->prepare(
-            "SELECT * FROM BNGRC_ville WHERE id = ?"
+            "SELECT * FROM BNGRC_ville WHERE id_ville = ?"
         );
         $st->execute([$id]);
         return $st->fetch(PDO::FETCH_ASSOC);

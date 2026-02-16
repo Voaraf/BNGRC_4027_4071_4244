@@ -20,19 +20,21 @@ INSERT INTO BNGRC_ville (nom_ville, image_ville) VALUES
 ('Mahajanga', 'assets/img/mahajanga.png'),
 ('Toliara', 'assets/img/toliara.png'),
 ('Antsirabe', 'assets/img/antsirabe.png');
+
 CREATE TABLE IF NOT EXISTS BNGRC_type (
   id_type INT AUTO_INCREMENT PRIMARY KEY,
-  nom_type VARCHAR(100) UNIQUE
+  nom_type VARCHAR(100) UNIQUE,
+  icone_type VARCHAR(255)
 
 );
 
-INSERT INTO BNGRC_type (nom_type) VALUES 
-('Besoins'),
-('Médicaments'),
-('Vêtements'),
-('Matériel de secours'),
-('Nourriture'),
-('Autre');
+INSERT INTO BNGRC_type (nom_type, icone_type) VALUES 
+('Liquide', 'assets/img/besoins.png'),
+('Médicaments', 'assets/img/medicaments.png'),
+('Vêtements', 'assets/img/vetements.png'),
+('Matériel de secours', 'assets/img/materiel_secours.png'),
+('Nourriture', 'assets/img/nourriture.png'),
+('Autre', 'assets/img/autre.png');
 
 CREATE TABLE IF NOT EXISTS BNGRC_besoin (
   id_besoin INT AUTO_INCREMENT PRIMARY KEY,
