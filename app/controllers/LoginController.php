@@ -1,11 +1,10 @@
 <?php
-session_start();
 class LoginController {
 
   public static function showLogin() {
     Flight::render('login', [
-      'values' => ['email' => ''],
-      'errors' => ['email' => ''],
+      'values' => ['email' => '', 'password' => ''],
+      'errors' => ['email' => '', 'password' => ''],
       'success' => false
     ]);
   }
@@ -18,13 +17,14 @@ public static function postLogin() {
 
     $input = [
         'email' => $req->data->email,
+        'password' => $req->data->password,
     ];
 
     $res = Validator::validateLogin($input);
 
     if ($res['ok']) {
 
-        $user = $repo->insertOrFindByEmail($res['values']['email']);
+        $user = $repo->insertOrFindByEmail($res['values']['email'], $res['values']['password']);
 
         if ($user) {
 

@@ -9,7 +9,33 @@ CREATE TABLE IF NOT EXISTS BNGRC_user (
 
 CREATE TABLE IF NOT EXISTS BNGRC_ville (
   id_ville INT AUTO_INCREMENT PRIMARY KEY,
-  nom_ville VARCHAR(100) UNIQUE
+  nom_ville VARCHAR(100) UNIQUE,
+  image_ville VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS BNGRC_type (
+  id_type INT AUTO_INCREMENT PRIMARY KEY,
+  nom_type VARCHAR(100) UNIQUE
+
+);
+
+INSERT INTO BNGRC_type (nom_type) VALUES 
+('Besoins'),
+('Médicaments'),
+('Vêtements'),
+('Matériel de secours'),
+('Nourriture'),
+('Autre');
+
+CREATE TABLE IF NOT EXISTS BNGRC_besoin (
+  id_besoin INT AUTO_INCREMENT PRIMARY KEY,
+  id_ville INT,
+  type_besoin VARCHAR(100),
+  besoin VARCHAR(255),
+  quantite_besoin DECIMAL(10, 2),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (type_besoin) REFERENCES BNGRC_type(id_type) ON DELETE CASCADE,
+  FOREIGN KEY (id_ville) REFERENCES BNGRC_ville(id_ville) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS BNGRC_donation (
@@ -22,22 +48,7 @@ CREATE TABLE IF NOT EXISTS BNGRC_donation (
   FOREIGN KEY (type_donation) REFERENCES BNGRC_type(id_type) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS BNGRC_type (
-  id_type INT AUTO_INCREMENT PRIMARY KEY,
-  nom_type VARCHAR(100) UNIQUE
 
-);
-
-CREATE TABLE IF NOT EXISTS BNGRC_besoin (
-  id_besoin INT AUTO_INCREMENT PRIMARY KEY,
-  id_ville INT,
-  type_besoin VARCHAR(100),
-  besoin VARCHAR(255),
-  quantite_besoin DECIMAL(10, 2),
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (type_besoin) REFERENCES BNGRC_type(id_type) ON DELETE CASCADE,
-  FOREIGN KEY (id_ville) REFERENCES BNGRC_ville(id_ville) ON DELETE CASCADE
-);
 
 CREATE TABLE IF NOT EXISTS BNGRC_distribution(
   id_distribution INT AUTO_INCREMENT PRIMARY KEY,
