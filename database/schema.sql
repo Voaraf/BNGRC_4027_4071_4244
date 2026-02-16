@@ -63,3 +63,24 @@ CREATE TABLE IF NOT EXISTS BNGRC_distribution(
   FOREIGN KEY (id_donation) REFERENCES BNGRC_donation(id_donation) ON DELETE CASCADE,
   FOREIGN KEY (id_besoin) REFERENCES BNGRC_besoin(id_besoin) ON DELETE CASCADE
 );
+
+CREATE TABLE BNGRC_prix_unitaire (
+  id_prix_unitaire INT AUTO_INCREMENT PRIMARY KEY,
+  type INT,
+  prix DECIMAL(10,2),
+  date_mise_a_jour TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (type) REFERENCES BNGRC_type(id_type) ON DELETE CASCADE
+);
+
+INSERT INTO BNGRC_prix_unitaire (type, prix) VALUES 
+(1, 1900),
+(2, 2000);
+
+CREATE TABLE IF NOT EXISTS BNGRC_achats (
+  id_achat INT AUTO_INCREMENT PRIMARY KEY,
+  id_besoin INT,
+  quantite_achetee DECIMAL(10,2),
+  montant_total DECIMAL(10,2),
+  date_achat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_besoin) REFERENCES BNGRC_besoin(id_besoin) ON DELETE CASCADE
+);

@@ -29,7 +29,7 @@ require_once __DIR__ . '/header.php';
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select name="type_donation">
+                                    <select name="type_donation" class="form-select">
                                         <?php foreach($types as $type) { ?>
                                             <option value="<?= $type['id_type'] ?>"><?= $type['nom_type'] ?></option> 
                                         <?php } ?>
