@@ -49,8 +49,8 @@
                                 <i class="fa fa-phone-alt text-dark"></i>
                             </div>
                             <div class="ms-2">
-                                <h6 class="text-primary mb-0">Call Us</h6>
-                                <span class="text-white">+012 345 6789</span>
+                                <h6 class="text-primary mb-0">Antsoy izay</h6>
+                                <span class="text-white">+261 34 05 480 68</span>
                             </div>
                         </div>
                     </div>
@@ -60,8 +60,8 @@
                                 <i class="fa fa-envelope-open text-dark"></i>
                             </div>
                             <div class="ms-2">
-                                <h6 class="text-primary mb-0">Mail Us</h6>
-                                <span class="text-white">info@domain.com</span>
+                                <h6 class="text-primary mb-0">Mail</h6>
+                                <span class="text-white">bngrc@gmail.com</span>
                             </div>
                         </div>
                     </div>
@@ -71,8 +71,10 @@
                                 <i class="fa fa-map-marker-alt text-dark"></i>
                             </div>
                             <div class="ms-2">
-                                <h6 class="text-primary mb-0">Address</h6>
-                                <span class="text-white">123 Street, NY, USA</span>
+                                <h6 class="text-primary mb-0">Adiresy</h6>
+                                <span class="text-white">
+                                    Avaratra Antanimora Route Mausolée
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -112,9 +114,9 @@
                         -->
                     </div>
                     <div class="d-none d-lg-flex ms-auto">
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-dark ms-2" href="#!"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square btn-dark ms-2" href="https://x.com/BngrcMada"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-dark ms-2" href="https://www.facebook.com/BNGRCMID/?locale=fr_FR"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-dark ms-2" href="https://www.youtube.com/channel/UC2cc8QnBdihkr4nOyJttjrw/videos"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </nav>
@@ -136,7 +138,7 @@
                 </div>
                 <div class="d-none d-lg-block col-lg-1">
                     <div class="h-100 w-100 bg-secondary d-flex align-items-center justify-content-center">
-                        <span class="text-white" style="transform: rotate(-90deg);">Scroll Down</span>
+                        <span class="text-white" style="transform: rotate(-90deg);">Ampidino</span>
                     </div>
                 </div>
             </div>

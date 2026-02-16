@@ -5,36 +5,36 @@
         <div class="container">
             <div class="row g-5 py-5">
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Our Office</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <h4 class="text-light mb-4">Birao</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Avaratra Antanimora Route Mausolée</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+261 34 05 480 68</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>bngrc@gmail.com</p>
                     <div class="d-flex pt-3">
-                        <a class="btn btn-square btn-primary me-2" href="#!"><i class="fab fa-x-twitter"></i></a>
-                        <a class="btn btn-square btn-primary me-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-primary me-2" href="#!"><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square btn-primary me-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-square btn-primary me-2" href="https://x.com/BngrcMada"><i class="fab fa-x-twitter"></i></a>
+                        <a class="btn btn-square btn-primary me-2" href="https://www.facebook.com/BNGRCMID/?locale=fr_FR"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-primary me-2" href="https://www.youtube.com/channel/UC2cc8QnBdihkr4nOyJttjrw/videos"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Quick Links</h4>
-                    <a class="btn btn-link" href="#!">About Us</a>
-                    <a class="btn btn-link" href="#!">Contact Us</a>
-                    <a class="btn btn-link" href="#!">Our Services</a>
-                    <a class="btn btn-link" href="#!">Terms & Condition</a>
-                    <a class="btn btn-link" href="#!">Support</a>
+                    <h4 class="text-light mb-4">Lien</h4>
+                    <a class="btn btn-link" href="">Mombamomba</a>
+                    <a class="btn btn-link" href="">Mifandraisa aminay</a>
+                    <a class="btn btn-link" href="">Tolotra ataonay</a>
+                    <a class="btn btn-link" href="">Fepetra sy Fitsipika</a>
+                    <a class="btn btn-link" href="">Fanohanana</a>
+
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Business Hours</h4>
-                    <p class="mb-1">Monday - Friday</p>
-                    <h6 class="text-light">09:00 am - 07:00 pm</h6>
-                    <p class="mb-1">Saturday</p>
-                    <h6 class="text-light">09:00 am - 12:00 pm</h6>
-                    <p class="mb-1">Sunday</p>
-                    <h6 class="text-light">Closed</h6>
+                    <h4 class="text-light mb-4">Ora fiasana</h4>
+                    <p class="mb-1">Alatsinainy - Zoma</p>
+                    <h6 class="text-light">07:00 maraina - 17:00 hariva</h6>
+                    <p class="mb-1">Asabotsy</p>
+                    <h6 class="text-light">08:00 maraina - 13:00 atoandro</h6>
+                    <p class="mb-1">Alahady</p>
+                    <h6 class="text-light">Mikatona</h6>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Gallery</h4>
+                    <h4 class="text-light mb-4">Sary</h4>
                     <div class="row g-2">
                         <div class="col-4">
                             <img class="img-fluid w-100" src="assets/img/gallery-1.jpg" alt="">
