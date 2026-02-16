@@ -19,30 +19,36 @@ require_once __DIR__ . '/header.php';
                         entina hanampiana ireo sahirana. Na kely aza ny fanomezana, 
                         dia afaka mitondra fiovana lehibe eo amin’ny fiainan’ny hafa. 
                     </p>
-                    <form action="/traitementinsererBesoin">
+                    <form action="/traitementinsererDon">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">Your Name</label>
+                                    <select name="ville">
+                                        <?php foreach($data as $ville) { ?>
+                                            <option value="<?= $ville['id_ville'] ?>"><?= $ville['nom_ville'] ?></option> 
+                                        <?php } ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                    <label for="email">Your Email</label>
+                                    <select name="ville">
+                                        <?php foreach($types as $type) { ?>
+                                            <option value="<?= $type['id_type'] ?>"><?= $type['nom_type'] ?></option> 
+                                        <?php } ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">Subject</label>
+                                    <label for="subject">Habetsahana</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">Subject</label>
+                                    <label for="subject">Amin’ny anaran'i</label>
                                 </div>
                             </div>
                             <div class="col-12">

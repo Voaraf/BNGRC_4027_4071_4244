@@ -7,8 +7,10 @@ class DonController {
     $pdo = Flight::db();
     $repo = new UtilRepository($pdo);
     $data = $repo->getAllVille();
-    Flight::render('inserer_don', [
+    $types = $repo->getTypeDonation();
+    Flight::render('insererDon', [
       'data' => $data,
+      'types' => $types,
       'values' => [
         'type_donation' => '',
         'donneur' => '',
@@ -43,7 +45,7 @@ class DonController {
     if ($res['ok']) {
         $repo->insertDon($res['values']);
 
-        Flight::render('inserer_don', [
+        Flight::render('dashboard', [
           'values' => $res['values'],
           'errors' => [
             'type_donation' => '',
@@ -56,7 +58,7 @@ class DonController {
         return;
     }
 
-    Flight::render('inserer_don', [
+    Flight::render('insererDon', [
       'values' => $res['values'],
       'errors' => $res['errors'],
       'success' => false
