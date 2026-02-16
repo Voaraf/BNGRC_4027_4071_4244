@@ -21,13 +21,7 @@ require_once __DIR__ . '/header.php';
                     </p>
                     <form action="/traitementinsererBesoin" method="post">
                         <div class="row g-3">
-                             <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="besoin" name="besoin" placeholder="Ny Filanao">
-                                    <label for="besoin">Filana</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-floating">
                                    <select name="besoin_ville" class="form-select" >
                                         <?php foreach ($besoin as $b): ?>
@@ -42,15 +36,8 @@ require_once __DIR__ . '/header.php';
                                     <label for="quantite">Habetsahany</label>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <select name="type">
-                                            <option value=""><</option> 
-                                    </select>
-                                </div>
-                            </div>
                             <div class="col-12">
-                                <button class="btn btn-primary py-3 px-4" type="submit">Insérer</button>
+                                <button class="btn btn-primary py-3 px-4" type="submit">Acheter</button>
                             </div>
                         </div>
                     </form>
