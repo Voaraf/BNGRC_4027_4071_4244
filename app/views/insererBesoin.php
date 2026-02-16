@@ -24,8 +24,11 @@ require_once __DIR__ . '/header.php';
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">Your Name</label>
+                                   <select name="ville">
+                                        <?php foreach($data as $ville) { ?>
+                                            <option value="<?= $ville['id_ville'] ?>"><?= $ville['nom_ville'] ?></option> 
+                                        <?php } ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-6">

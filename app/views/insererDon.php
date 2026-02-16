@@ -23,16 +23,13 @@ require_once __DIR__ . '/header.php';
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select name="ville">
-                                        <?php foreach($data as $ville) { ?>
-                                            <option value="<?= $ville['id_ville'] ?>"><?= $ville['nom_ville'] ?></option> 
-                                        <?php } ?>
-                                    </select>
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <label for="subject">Fanomezana</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select name="ville">
+                                    <select name="type">
                                         <?php foreach($types as $type) { ?>
                                             <option value="<?= $type['id_type'] ?>"><?= $type['nom_type'] ?></option> 
                                         <?php } ?>
