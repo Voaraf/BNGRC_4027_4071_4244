@@ -38,7 +38,7 @@ function cls_invalid($errors, $field){ return ($errors[$field] ?? '') !== '' ? '
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
-  <body class="login-page bg-body-secondary">
+  <body class="login-page bg-body-secondary d-flex align-items-center" style="height: 100vh; background-image: url('assets/img/gallery-6.jpg'); background-size: cover; background-position: center; border-color: rgba(0, 0, 0, 0.5);">
      <!-- Donate Start -->
     <div class="container-fluid donate py-5">
         <div class="container">
@@ -46,18 +46,18 @@ function cls_invalid($errors, $field){ return ($errors[$field] ?? '') !== '' ? '
                 <div class="col-lg-7 donate-text bg-light py-5 wow fadeIn" data-wow-delay="0.1s">
                     <div class="d-flex flex-column justify-content-center h-100 p-5 wow fadeIn" data-wow-delay="0.3s">
                         <h1 class="display-6 mb-4">Tongasoa eto amin'ny pejin'ny BNGRC</h1>
-                        <p class="fs-5 mb-0">Andao hifanome tanana, haneho firaisankina ary hanampy ireo rahalahy sy anabavintsika tratran’ny loza.
-Ny firaisankina no hery. Ny fanomezana no aina.
+                        <p class="fs-5 mb-0">Andao hifanome tanana, haneho firaisankina ary hanampy ireo rahalahy 
+                          sy anabavintsika tratran’ny loza. Ny firaisankina no hery. Ny fanomezana no aina.
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-5 donate-form bg-primary py-5 text-center wow fadeIn" data-wow-delay="0.5s">
                     <div class="h-100 p-5">
-                        <form>
+                        <form action="/dashboard" method="post">
                             <div class="row g-3">
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="email" name="email" class="form-control" id="email" placeholder="Email" class="form-control <?= cls_invalid($errors,'email') ?>" value="<?= e($values['email'] ?? '') ?>">
+                                        <input type="email" name="email" class="form-control <?= cls_invalid($errors, 'email') ?>" id="email" placeholder="Email" value="<?= e($values['email'] ?? '') ?>">
                                         <label for="email">Email</label>
                                         <div class="invalid-feedback" id="emailError"><?= e($errors['email'] ?? '') ?></div>
 
@@ -65,7 +65,7 @@ Ny firaisankina no hery. Ny fanomezana no aina.
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="password" name="password" class="form-control" id="password" placeholder="Password" class="form-control <?= cls_invalid($errors,'password') ?>" value="<?= e($values['password'] ?? '') ?>">
+                                        <input type="password" name="password" class="form-control <?= cls_invalid($errors, 'password') ?>" id="password" placeholder="Password" value="<?= e($values['password'] ?? '') ?>">
                                         <label for="password">Password</label>
                                         <div class="invalid-feedback" id="passwordError"><?= e($errors['password'] ?? '') ?></div>
                                     </div>

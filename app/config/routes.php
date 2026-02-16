@@ -5,6 +5,6 @@ require_once __DIR__ . '/../repositories/UserRepository.php';
 
 
 Flight::route('GET /', ['LoginController', 'showLogin']);
-Flight::route('POST /login', ['LoginController', 'postLogin']);
+Flight::route('POST /dashboard', ['LoginController', 'postLogin']);
 
 

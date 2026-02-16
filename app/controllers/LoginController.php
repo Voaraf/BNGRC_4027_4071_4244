@@ -31,7 +31,7 @@ public static function postLogin() {
             $_SESSION['user_id'] = $user['id_users'];
             $_SESSION['email']   = $user['email'];
 
-            Flight::redirect('/messages');
+            Flight::redirect('/dashboard');
             return;
         }
 
