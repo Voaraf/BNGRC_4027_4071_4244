@@ -7,12 +7,3 @@ CREATE TABLE IF NOT EXISTS users (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS messages (
-  id_messages INT AUTO_INCREMENT PRIMARY KEY,
-  id_envoyeur INT, 
-  id_recepteur INT, 
-  messages_text VARCHAR(500), 
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  lu TINYINT(1) DEFAULT 0
-);
-drop TABLE IF EXISTS messages;
