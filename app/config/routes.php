@@ -8,6 +8,8 @@ require_once __DIR__ . '/../repositories/BesoinRepository.php';
 require_once __DIR__ . '/../repositories/DonRepository.php';
 require_once __DIR__ . '/../repositories/DashboardRepository.php';
 require_once __DIR__ . '/../controllers/DashboardController.php';
+require_once __DIR__ . '/../repositories/DistributionRepository.php';
+require_once __DIR__ . '/../controllers/DistributionController.php';
 require_once __DIR__ . '/../repositories/UtilRepository.php';
 
 
@@ -23,3 +25,6 @@ Flight::route('GET /insererDon', ['DonController', 'showInsererDon']);
 Flight::route('POST /traitementinsererDon', ['DonController', 'insererDon']);
 
 Flight::route('GET /ville/@id', ['DashboardController', 'showVilleById']);
+
+Flight::route('GET /insererDistribution', ['DistributionController', 'showDistribution']);
+
