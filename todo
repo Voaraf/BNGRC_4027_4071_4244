@@ -31,9 +31,12 @@ FrontOffice:
 
         BesoinController.php:
             -function insererBesoin() pour insérer des besoin
+            -function showinsererbesoin() pour afficher la page d'insertion des besoins
 
         DonController.php:
             -function insererDon() pour insérer des dons
+            -function showinsererDon() pour afficher la page d'insertion des dons
+
         
 
 
