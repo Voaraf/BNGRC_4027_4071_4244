@@ -43,15 +43,7 @@ require_once __DIR__ . '/header.php';
                                     <label for="quantite">Habetsahany</label>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <select name="type">
-                                        <?php foreach($types as $type) { ?>
-                                            <option value="<?= $type['id_type'] ?>"><?= $type['nom_type'] ?></option> 
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                            </div>
+                          
                             <div class="col-12">
                                 <button class="btn btn-primary py-3 px-4" type="submit">Insérer</button>
                             </div>

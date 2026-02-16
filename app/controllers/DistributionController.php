@@ -1,7 +1,7 @@
 <?php
 
 class DistributionController {
-     public static function showDistribution() {
+     public static function showInsererDistribution() {
         
         $pdo = Flight::db();
         $repo = new UtilRepository($pdo);
