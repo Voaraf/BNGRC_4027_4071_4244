@@ -9,7 +9,7 @@ class BesoinController {
         $req = Flight::request();
 
         $input = [
-            'description' => $req->data->description,
+            'besoin' => $req->data->besoin,
             'ville' => $req->data->ville,
             'quantite' => $req->data->quantite,
             'type' => $req->data->type,

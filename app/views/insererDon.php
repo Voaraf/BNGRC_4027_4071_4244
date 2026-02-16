@@ -23,13 +23,13 @@ require_once __DIR__ . '/header.php';
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">Fanomezana</label>
+                                    <input type="text" class="form-control" id="donation" name="donation" placeholder="Subject">
+                                    <label for="donation">Fanomezana</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select name="type">
+                                    <select name="type_donation">
                                         <?php foreach($types as $type) { ?>
                                             <option value="<?= $type['id_type'] ?>"><?= $type['nom_type'] ?></option> 
                                         <?php } ?>
@@ -38,14 +38,14 @@ require_once __DIR__ . '/header.php';
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">Habetsahana</label>
+                                    <input type="text" class="form-control" id="quantite" name="quantite" placeholder="Subject">
+                                    <label for="quantite">Habetsahana</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">Amin’ny anaran'i</label>
+                                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Subject">
+                                    <label for="nom">Amin’ny anaran'i</label>
                                 </div>
                             </div>
                             <div class="col-12">
