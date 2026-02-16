@@ -6,8 +6,11 @@ class DistributionController {
         $pdo = Flight::db();
         $repo = new UtilRepository($pdo);
         $data = $repo->getAllVille();
-        Flight::render('insererBesoin', [
-     
+        Flight::render('insererDistribution', [
+            'data' => $data,
+            'values' => ['besoin' => '', 'quantite' => '', 'type' => '', 'ville' => ''],
+            'errors' => ['besoin' => '', 'quantite' => '', 'type' => '', 'ville' => ''],
+            'success' => false   
         ]);
     }
 }
