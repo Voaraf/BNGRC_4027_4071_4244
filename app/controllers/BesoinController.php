@@ -42,6 +42,8 @@ class BesoinController {
         $data = $repo->getAllVille();
         $types = $repo->getType();
         Flight::render('insererBesoin', [
+            'data' => $data,
+            'types' => $types,
             'values' => ['besoin' => '', 'quantite' => '', 'type' => '', 'ville' => ''],
             'errors' => ['besoin' => '', 'quantite' => '', 'type' => '', 'ville' => ''],
             'success' => false
