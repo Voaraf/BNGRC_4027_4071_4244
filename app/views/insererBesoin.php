@@ -6,7 +6,7 @@ require_once __DIR__ . '/header.php';
             <div class="row g-5">
                 <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
                     <p class="section-title bg-white text-start text-primary pe-3">Besoin</p>
-                    <h1 class="display-6 mb-4 wow fadeIn" data-wow-delay="0.2s">Misaotra mialoha !
+                    <h1 class="display-6 mb-4 wow fadeIn" data-wow-delay="0.2s">Mila anzao izay!
                     </h1>
                     <img class="w-100"
                         src="assets/img/donn.png"
@@ -14,10 +14,11 @@ require_once __DIR__ . '/header.php';
                         tabindex="0"></img>
                 </div>
                 <div class="col-lg-7 wow fadeIn" data-wow-delay="0.3s">
-                   <h3>Tsy ny haben’ny fanomezana no zava-dehibe, fa ny fo madio manome</h3>
-                    <p class="mb-4">Ny fanomezana dia fihetsika feno fitiavana sy firaisankina, 
-                        entina hanampiana ireo sahirana. Na kely aza ny fanomezana, 
-                        dia afaka mitondra fiovana lehibe eo amin’ny fiainan’ny hafa. 
+                   <h3>Ny mangataka tsy mba mahamenatra, fa ny tsy mifanampy no mahamenatra.</h3>
+                    <p class="mb-4">Ity pejy ity dia natao hanehoana ireo olona sy toerana tena mila fanampiana. 
+                        Ny fangatahana dia atao amin-kitsim-po sy fahatsorana, 
+                        mba hahafahana mahazo tohana sy fanohanana avy amin’ireo vonona hanampy. 
+                        Miaraka isika no afaka manamaivana ny fahasahiranana
                     </p>
                     <form action="/traitementinsererBesoin">
                         <div class="row g-3">
