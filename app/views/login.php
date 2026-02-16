@@ -38,7 +38,7 @@ function cls_invalid($errors, $field){ return ($errors[$field] ?? '') !== '' ? '
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
-  <body class="login-page bg-body-secondary d-flex align-items-center" style="height: 100vh; background-image: url('assets/img/gallery-6.jpg'); background-size: cover; background-position: center; border-color: rgba(0, 0, 0, 0.5);">
+  <body class="login-page bg-body-secondary d-flex align-items-center" style="height: 100vh; background-image: url('assets/img/back.png'); background-size: cover; background-position: center; border-color: rgba(0, 0, 0, 0.5);">
      <!-- Donate Start -->
     <div class="container-fluid donate py-5">
         <div class="container">
