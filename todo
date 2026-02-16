@@ -45,6 +45,7 @@ FrontOffice:
         BesoinController.php:
             -function insererBesoin() pour insérer des besoin
             -function showinsererbesoin() pour afficher la page d'insertion des besoins
+            -function showinsererbesoin() pour afficher la page d'insertion des besoins
 
         DonController.php:
             -function insererDon() pour insérer des dons et mettre à jour le stock
@@ -57,6 +58,10 @@ FrontOffice:
         DistributionController.php:
             -function showInsererDistribution() pour afficher le formulaire de distribution
             -function insererDistribution() pour traiter la distribution et diminuer le stock/besoin
+            -function insererDon() pour insérer des dons
+            -function showinsererDon() pour afficher la page d'insertion des dons
+
+        
 
 
     services:
@@ -83,6 +88,10 @@ FrontOffice:
             -function getAllBesoinVille() pour lister les besoins non comblés
             -function getBesoinById($id) pour les détails d'un besoin
             -function diminuerQuantiteBesoin($id_besoin, $quantite) pour réduire le besoin automatiquement
+            -function getDashboardData() pour récupérer les données nécessaires pour le tableau de bord
+
+        BesoinRepository.php:
+            -function insererBesoin() pour insérer des besoin dans la base de données
 
         DonRepository.php:
             -function insererDon() pour insérer des dons
