@@ -9,7 +9,7 @@ class UserRepository {
     public function insertOrFindByEmail($email) {
 
         $st = $this->pdo->prepare(
-            "SELECT * FROM users WHERE email = ? LIMIT 1"
+            "SELECT * FROM BNGRC_user WHERE email = ? LIMIT 1"
         );
         $st->execute([$email]);
         $user = $st->fetch(PDO::FETCH_ASSOC);
@@ -19,14 +19,14 @@ class UserRepository {
         }
 
         $st = $this->pdo->prepare(
-            "INSERT INTO users (email) VALUES (?)"
+            "INSERT INTO BNGRC_user (email) VALUES (?)"
         );
         $st->execute([$email]);
 
         $id = $this->pdo->lastInsertId();
 
         $st = $this->pdo->prepare(
-            "SELECT * FROM users WHERE id_users = ?"
+            "SELECT * FROM BNGRC_user WHERE id_users = ?"
         );
         $st->execute([$id]);
 
@@ -35,7 +35,7 @@ class UserRepository {
 
     public function getAllUsersExcept($currentUserId) {
         $st = $this->pdo->prepare(
-            "SELECT * FROM users WHERE id_users != ? ORDER BY email"
+            "SELECT * FROM BNGRC_user WHERE id_users != ? ORDER BY email"
         );
         $st->execute([$currentUserId]);
         return $st->fetchAll(PDO::FETCH_ASSOC);
