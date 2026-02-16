@@ -30,7 +30,7 @@ require_once __DIR__ . '/header.php';
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                   <select name="ville">
+                                   <select name="ville" class="form-select">
                                         <?php foreach($data as $ville) { ?>
                                             <option value="<?= $ville['id_ville'] ?>"><?= $ville['nom_ville'] ?></option> 
                                         <?php } ?>
@@ -45,7 +45,7 @@ require_once __DIR__ . '/header.php';
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select name="type">
+                                    <select name="type" class="form-select">
                                         <?php foreach($types as $type) { ?>
                                             <option value="<?= $type['id_type'] ?>"><?= $type['nom_type'] ?></option> 
                                         <?php } ?>
