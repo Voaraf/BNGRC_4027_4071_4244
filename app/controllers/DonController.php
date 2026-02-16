@@ -3,7 +3,12 @@ session_start();
 class DonController {
 
   public static function showinsererDon() {
+
+    $pdo = Flight::db();
+    $repo = new UtilRepository($pdo);
+    $data = $repo->getAllVille();
     Flight::render('inserer_don', [
+      'data' => $data,
       'values' => [
         'type_donation' => '',
         'donneur' => '',
@@ -57,4 +62,5 @@ class DonController {
       'success' => false
     ]);
   }
+
 }
