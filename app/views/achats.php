@@ -29,8 +29,10 @@ require_once __DIR__ . '/header.php';
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                   <select name="besoin_ville">
-                                            <option value=""></option> 
+                                   <select name="besoin_ville" class="form-select" >
+                                        <?php foreach ($besoin as $b): ?>
+                                            <option value="<?= $b['id_ville'] ?>"><?= $b['besoin'] ?>-<?= $b['nom_ville'] ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>

@@ -44,6 +44,26 @@ CREATE TABLE IF NOT EXISTS BNGRC_besoin (
   FOREIGN KEY (id_ville) REFERENCES BNGRC_ville(id_ville) ON DELETE CASCADE
 );
 
+  INSERT INTO BNGRC_besoin (id_ville, type_besoin, besoin, quantite_besoin) VALUES
+(1, 1, 'riz', 500),
+(1, 2, 'brique', 200),
+(1, 3, 'argent', 10000),
+(2, 1, 'légumes', 300),
+(2, 2, 'bois', 150),
+(2, 3, 'argent', 5000),
+(3, 1, 'farine', 400),
+(3, 2, 'tôle', 100),
+(3, 3, 'argent', 8000),
+(4, 1, 'pâtes', 350),
+(4, 2, 'ciment', 250),
+(4, 3, 'argent', 6000),
+(5, 1, 'huile', 200),
+(5, 2, 'fer', 300),
+(5, 3, 'argent', 7000),
+(6, 1, 'sucre', 450),
+(6, 2, 'sable', 400),
+(6, 3, 'argent', 9000);
+
 CREATE TABLE IF NOT EXISTS BNGRC_donation (
   id_donation INT AUTO_INCREMENT PRIMARY KEY,
   type_donation INT,
@@ -53,6 +73,27 @@ CREATE TABLE IF NOT EXISTS BNGRC_donation (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (type_donation) REFERENCES BNGRC_type(id_type) ON DELETE CASCADE
 );
+
+  INSERT INTO BNGRC_donation (type_donation, donneur, donation, quantite_donnee) VALUES
+(1, 'Alice', 'riz', 200),
+(2, 'Bob', 'brique', 100),
+(3, 'Charlie', 'argent', 5000),
+(1, 'David', 'légumes', 150),
+(2, 'Eve', 'bois', 80),
+(3, 'Frank', 'argent', 300000),
+(1, 'Grace', 'farine', 250),
+(2, 'Heidi', 'tôle', 50),
+(3, 'Ivan', 'argent', 4000),
+(1, 'Judy', 'pâtes', 100),
+(2, 'Karl', 'ciment', 120),
+(3, 'Leo', 'argent', 2000),
+(1, 'Mallory', 'huile', 80),
+(2, 'Nina', 'fer', 150),
+(3, 'Oscar', 'argent', 3500),
+(1, 'Peggy', 'sucre', 300),
+(2, 'Quentin', 'sable', 200),
+(3, 'Ruth', 'argent', 4500);
+
 
 CREATE TABLE IF NOT EXISTS BNGRC_distribution(
   id_distribution INT AUTO_INCREMENT PRIMARY KEY,
