@@ -84,27 +84,6 @@ INSERT INTO BNGRC_ville (nom_ville, image_ville) VALUES
     FOREIGN KEY (type_donation) REFERENCES BNGRC_type(id_type) ON DELETE CASCADE
   );
 
-  INSERT INTO BNGRC_donation (type_donation, donneur, donation, quantite_donnee) VALUES
-  (1, 'Alice', 'riz', 200),
-  (2, 'Bob', 'brique', 100),
-  (3, 'Charlie', 'argent', 5000),
-  (1, 'David', 'légumes', 150),
-  (2, 'Eve', 'bois', 80),
-  (3, 'Frank', 'argent', 300000),
-  (1, 'Grace', 'farine', 250),
-  (2, 'Heidi', 'tôle', 50),
-  (3, 'Ivan', 'argent', 4000),
-  (1, 'Judy', 'pâtes', 100),
-  (2, 'Karl', 'ciment', 120),
-  (3, 'Leo', 'argent', 2000),
-  (1, 'Mallory', 'huile', 80),
-  (2, 'Nina', 'fer', 150),
-  (3, 'Oscar', 'argent', 3500),
-  (1, 'Peggy', 'sucre', 300),
-  (2, 'Quentin', 'sable', 200),
-  (3, 'Ruth', 'argent', 4500);
-
-
   CREATE TABLE IF NOT EXISTS BNGRC_distribution(
     id_distribution INT AUTO_INCREMENT PRIMARY KEY,
     id_donation INT,
