@@ -156,3 +156,7 @@ INSERT INTO BNGRC_ville (nom_ville, image_ville) VALUES
     pourcentage DECIMAL(5,2) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   );
+
+  INSERT INTO BNGRC_remise (type_remise, pourcentage) VALUES 
+  ('Nature', 10),
+  ('Matériaux', 20);

@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . '/../controllers/LoginController.php';
 require_once __DIR__ . '/../services/Validator.php';
 require_once __DIR__ . '/../repositories/UserRepository.php';
 require_once __DIR__ . '/../controllers/BesoinController.php';
@@ -18,10 +17,7 @@ require_once __DIR__ . '/../controllers/ResetController.php';
 require_once __DIR__ . '/../controllers/VenteController.php';
 require_once __DIR__ . '/../repositories/VenteRepository.php';
 
-Flight::route('GET /', ['LoginController', 'showLogin']);
-Flight::route('POST /login', ['LoginController', 'postLogin']);
-
-Flight::route('GET /dashboard', ['DashboardController', 'afficherTableauDeBord']);
+Flight::route('GET /', ['DashboardController', 'afficherTableauDeBord']);
 
 Flight::route('GET /insererBesoin', ['BesoinController', 'showInsererBesoin']);
 Flight::route('POST /traitementinsererBesoin', ['BesoinController', 'insererBesoin']);

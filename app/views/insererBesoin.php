@@ -6,7 +6,7 @@ require_once __DIR__ . '/header.php';
             <div class="row g-5">
                 <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
                     <p class="section-title bg-white text-start text-primary pe-3">Besoin</p>
-                    <h1 class="display-6 mb-4 wow fadeIn" data-wow-delay="0.2s">Mila anzao izay!
+                    <h1 class="display-6 mb-4 wow fadeIn" data-wow-delay="0.2s">Mila an'izao izahay!
                     </h1>
                     <img class="w-100"
                         src="assets/img/donn.png"

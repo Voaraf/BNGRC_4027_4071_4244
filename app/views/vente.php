@@ -1,158 +1,103 @@
 <?php
 require_once __DIR__ . '/header.php';
 ?>
-    <div class="container-fluid py-5">
-        <div class="container">
-            <!-- Success/Error Messages -->
-            <?php if(isset($_GET['success'])): ?>
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Succès!</strong> La vente a été enregistrée avec succès.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
+                <p class="section-title bg-white text-start text-primary pe-3">Vente</p>
+                <h1 class="display-6 mb-4">Hivarotra vokatra</h1>
+                
+                <?php if ($item) { 
+                    $imgSrc = !empty($item['icone_type']) ? '/' . ltrim($item['icone_type'], '/') : '/assets/img/default.png';
+                ?>
+                <div class="bg-light p-4 rounded shadow-sm">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="<?= htmlspecialchars($imgSrc) ?>" alt="icone" style="max-width:50px;margin-right:15px;" />
+                        <h4 class="mb-0"><?= htmlspecialchars($item['nom_besoin']) ?></h4>
+                    </div>
+                    <p class="mb-1"><strong>Sokajy:</strong> <?= htmlspecialchars($item['nom_type']) ?></p>
+                    <p class="mb-1"><strong>Tahiry:</strong> <span id="stock-max"><?= htmlspecialchars($item['quantite']) ?></span></p>
+                    <p class="mb-0"><strong>Vidiny fototra:</strong> <span id="base-price"><?= htmlspecialchars($item['prix_unitaire']) ?></span> Ar</p>
                 </div>
-            <?php endif; ?>
-            <?php if(isset($_GET['error'])): ?>
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Erreur!</strong> Une erreur s'est produite lors de l'enregistrement de la vente.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            <?php endif; ?>
-
-            <!-- Form Section -->
-            <div class="row g-5 mb-5">
-                <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
-                    <p class="section-title bg-white text-start text-primary pe-3">Vente</p>
-                    <h1 class="display-6 mb-4 wow fadeIn" data-wow-delay="0.2s">Mila anzao izay!
-                    </h1>
-                    <img class="w-100"
-                        src="assets/img/donn.png"
-                        style="height: 425px; border:0;" allowfullscreen="" aria-hidden="false"
-                        tabindex="0"></img>
-                </div>
-                <div class="col-lg-7 wow fadeIn" data-wow-delay="0.3s">
-                   <h3>Ny mangataka tsy mba mahamenatra, fa ny tsy mifanampy no mahamenatra.</h3>
-                    <p class="mb-4">Ity pejy ity dia natao hanehoana ireo zavatra azo amidy. 
-                        Miaraka isika no afaka manamaivana ny fahasahiranana.
-                    </p>
-                    <form action="/traitementinsererVente" method="post" id="venteForm">
-                        <div class="row g-3">
-                            <div class="col-12">
-                                <div class="form-floating">
-                                   <select name="id_stock" id="selectStock" class="form-select" required onchange="updateFormData()">
-                                        <option value="">Safidio ny zavatra</option>
-                                        <?php foreach($stockDispo as $s) { ?>
-                                            <option value="<?= $s['id_stock'] ?>" 
-                                                    data-nom="<?= htmlspecialchars($s['nom_besoin']) ?>"
-                                                    data-max="<?= $s['total_quantite'] ?>"
-                                                    data-prix="<?= $s['prix_unitaire'] ?>">
-                                                <?= htmlspecialchars($s['nom_besoin']) ?> (<?= number_format($s['total_quantite'], 2) ?> disponible)
-                                            </option> 
-                                        <?php } ?>
-                                    </select>
-                                    <label for="selectStock">Zavatra</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="number" class="form-control" id="quantite" name="quantite" 
-                                           placeholder="Quantité" step="0.01" min="0.01" required 
-                                           oninput="calculateFormTotal()">
-                                    <label for="quantite">Habetsahany</label>
-                                </div>
-                                <small class="text-muted" id="maxQuantite"></small>
-                            </div>
-                            <div class="col-12">
-                                <div class="alert alert-info">
-                                    <strong>Prix unitaire:</strong> <span id="prixUnitaire">-</span> Ar<br>
-                                    <strong>Montant total:</strong> <span id="montantTotal" class="fs-5 text-success">0.00</span> Ar
-                                </div>
-                                <input type="hidden" name="prix_unitaire" id="prixUnitaireHidden">
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary py-3 px-4" type="submit">Vendre</button>
+                <?php } ?>
+            </div>
+            
+            <div class="col-lg-7 wow fadeIn" data-wow-delay="0.3s">
+                <form action="/traitementinsererVente" method="post" id="vente-form">
+                    <input type="hidden" name="id_stock" value="<?= $item['id_stock'] ?? '' ?>">
+                    <input type="hidden" name="prix_unitaire" value="<?= $item['prix_unitaire'] ?? 0 ?>">
+                    
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="number" step="0.01" class="form-control" id="quantite" name="quantite" placeholder="Nombre" min="0.01" max="<?= $item['quantite'] ?? 0 ?>" required>
+                                <label for="quantite">Habetsahany (Quantité)</label>
+                                <?php if (!empty($errors['quantite'])) { ?>
+                                    <small class="text-danger"><?= $errors['quantite'] ?></small>
+                                <?php } ?>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
+                        
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <select name="id_remise" id="id_remise" class="form-select">
+                                    <option value="0" data-pct="0">Tsy misy (0%)</option>
+                                    <?php foreach($remises as $remise) { ?>
+                                        <option value="<?= $remise['id_remise'] ?>" data-pct="<?= $remise['pourcentage'] ?>">
+                                            <?= htmlspecialchars($remise['type_remise']) ?> (<?= $remise['pourcentage'] ?>%)
+                                        </option>
+                                    <?php } ?>
+                                </select>
+                                <label for="id_remise">Karazana fihenam-bidy (Remise)</label>
+                            </div>
+                        </div>
 
-            <!-- Catalog Section -->
-            <div class="text-center mx-auto wow fadeIn mb-4" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="section-title bg-white text-center text-primary px-3">Catalogue</p>
-                <h2 class="mb-4">Articles Disponibles</h2>
-            </div>
+                        <div class="col-12 mt-4">
+                            <div class="bg-dark text-white p-4 rounded text-end shadow">
+                                <p class="mb-1 fs-5">Zitiny feno (Sous-total) : <span id="sub-total">0.00</span> Ar</p>
+                                <p class="mb-1 text-warning">Fihenam-bidy (Remise) : - <span id="discount-val">0.00</span> Ar</p>
+                                <hr class="bg-secondary">
+                                <h3 class="text-primary mb-0">Vola aloa (Total) : <span id="grand-total">0.00</span> Ar</h3>
+                            </div>
+                        </div>
 
-            <div class="row g-4">
-                <?php if(empty($stockDispo)): ?>
-                    <div class="col-12">
-                        <div class="alert alert-info text-center">
-                            <h5>Aucun article disponible pour le moment</h5>
-                            <p>Il n'y a actuellement aucun article en stock disponible à la vente.</p>
+                        <div class="col-12 mt-4 text-end">
+                            <a href="/catalogue" class="btn btn-light rounded-pill py-3 px-5 me-2">Miverina</a>
+                            <button type="submit" class="btn btn-primary rounded-pill py-3 px-5">Varotana</button>
                         </div>
                     </div>
-                <?php else: ?>
-                    <?php foreach($stockDispo as $item): ?>
-                        <div class="col-lg-3 col-md-4 col-sm-6 wow fadeIn" data-wow-delay="0.1s">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-header bg-primary text-white text-center py-3">
-                                    <img src="<?= htmlspecialchars($item['icone_type']) ?>" alt="<?= htmlspecialchars($item['nom_type']) ?>" style="width: 40px; height: 40px; object-fit: contain;">
-                                    <h6 class="mt-2 mb-0"><?= htmlspecialchars($item['nom_besoin']) ?></h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="mb-2">
-                                        <span class="badge bg-secondary"><?= htmlspecialchars($item['nom_type']) ?></span>
-                                    </div>
-                                    <div class="d-flex justify-content-between mb-1">
-                                        <small><strong>Quantité:</strong></small>
-                                        <small class="text-success"><?= number_format($item['total_quantite'], 2) ?></small>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <small><strong>Prix:</strong></small>
-                                        <small class="text-primary"><?= number_format($item['prix_unitaire'], 2) ?> Ar</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
-    <script>
-    function updateFormData() {
-        const select = document.getElementById('selectStock');
-        const option = select.options[select.selectedIndex];
-        const quantiteInput = document.getElementById('quantite');
-        const maxQuantite = document.getElementById('maxQuantite');
-        const prixUnitaire = document.getElementById('prixUnitaire');
-        const prixUnitaireHidden = document.getElementById('prixUnitaireHidden');
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const quantiteInput = document.getElementById('quantite');
+    const remiseSelect = document.getElementById('id_remise');
+    const basePrice = parseFloat(document.getElementById('base-price')?.innerText || 0);
+    
+    function calculate() {
+        const qte = parseFloat(quantiteInput.value || 0);
+        const subTotal = qte * basePrice;
         
-        if (option.value) {
-            const max = parseFloat(option.dataset.max);
-            const prix = parseFloat(option.dataset.prix);
-            
-            quantiteInput.max = max;
-            maxQuantite.textContent = 'Maximum: ' + max.toFixed(2);
-            prixUnitaire.textContent = prix.toLocaleString('fr-FR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-            prixUnitaireHidden.value = prix;
-            
-            calculateFormTotal();
-        } else {
-            quantiteInput.max = '';
-            maxQuantite.textContent = '';
-            prixUnitaire.textContent = '-';
-            prixUnitaireHidden.value = '';
-            document.getElementById('montantTotal').textContent = '0.00';
-        }
+        const selectedOpt = remiseSelect.options[remiseSelect.selectedIndex];
+        const pct = parseFloat(selectedOpt.getAttribute('data-pct') || 0);
+        
+        const discountVal = subTotal * (pct / 100);
+        const grandTotal = subTotal - discountVal;
+        
+        document.getElementById('sub-total').innerText = subTotal.toLocaleString('fr-FR', { minimumFractionDigits: 2 });
+        document.getElementById('discount-val').innerText = discountVal.toLocaleString('fr-FR', { minimumFractionDigits: 2 });
+        document.getElementById('grand-total').innerText = grandTotal.toLocaleString('fr-FR', { minimumFractionDigits: 2 });
     }
     
-    function calculateFormTotal() {
-        const quantite = parseFloat(document.getElementById('quantite').value) || 0;
-        const prix = parseFloat(document.getElementById('prixUnitaireHidden').value) || 0;
-        const total = quantite * prix;
-        document.getElementById('montantTotal').textContent = total.toLocaleString('fr-FR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-    }
-    </script>
+    quantiteInput.addEventListener('input', calculate);
+    remiseSelect.addEventListener('change', calculate);
+});
+</script>
 
 <?php
 require_once __DIR__ . '/footer.php';

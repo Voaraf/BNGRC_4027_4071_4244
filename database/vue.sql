@@ -45,7 +45,12 @@ SELECT
     st.quantite as total_quantite,
     st.id_type,
     t.nom_type,
-    t.icone_type
+    t.icone_type,
+     COALESCE((
+                    SELECT prix FROM BNGRC_prix_unitaire pu 
+                    WHERE pu.type = st.id_type 
+                    ORDER BY pu.date_mise_a_jour DESC LIMIT 1
+                ), 0) as prix_unitaire
 FROM BNGRC_stock st
 JOIN BNGRC_type t ON st.id_type = t.id_type
 LEFT JOIN BNGRC_besoin b ON st.nom_besoin = b.besoin

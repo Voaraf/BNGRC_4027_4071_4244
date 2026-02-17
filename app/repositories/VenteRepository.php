@@ -9,17 +9,34 @@ class VenteRepository {
 
     public function getAllStockDispo() {
         $st = $this->pdo->prepare("
-            SELECT 
-                v.*,
-                COALESCE((
-                    SELECT prix FROM BNGRC_prix_unitaire pu 
-                    WHERE pu.type = v.id_type 
-                    ORDER BY pu.date_mise_a_jour DESC LIMIT 1
-                ), 0) as prix_unitaire
-            FROM v_verifierSiStockDispo v
+            SELECT * FROM v_verifierSiStockDispo
         ");
         $st->execute();
         return $st->fetchAll(PDO::FETCH_ASSOC);   
+    }
+
+    public function getStockById($id) {
+        $st = $this->pdo->prepare("
+            SELECT 
+                s.*,
+                t.nom_type,
+                COALESCE((
+                    SELECT prix FROM BNGRC_prix_unitaire pu 
+                    WHERE pu.type = s.id_type 
+                    ORDER BY pu.date_mise_a_jour DESC LIMIT 1
+                ), 0) as prix_unitaire
+            FROM BNGRC_stock s
+            JOIN BNGRC_type t ON s.id_type = t.id_type
+            WHERE s.id_stock = ?
+        ");
+        $st->execute([$id]);
+        return $st->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getRemises() {
+        $st = $this->pdo->prepare("SELECT * FROM BNGRC_remise ORDER BY pourcentage ASC");
+        $st->execute();
+        return $st->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function insertVente($id_stock, $quantite_vendue, $montant_total) {

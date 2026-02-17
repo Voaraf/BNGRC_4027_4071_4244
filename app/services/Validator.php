@@ -135,4 +135,28 @@ class Validator {
 
     return ['ok' => $ok, 'errors' => $errors, 'values' => $values];
   }
+  public static function validateVente(array $input, $maxQuantite) {
+    $errors = [
+      'quantite' => '',
+      'id_stock' => ''
+    ];
+
+    $values = [
+      'quantite' => trim((string)($input['quantite'] ?? '')),
+      'id_stock' => trim((string)($input['id_stock'] ?? ''))
+    ];
+
+    if ($values['id_stock'] === '') $errors['id_stock'] = "Le produit est obligatoire.";
+    if ($values['quantite'] === '') $errors['quantite'] = "La quantité est obligatoire.";
+    elseif (!is_numeric($values['quantite']) || $values['quantite'] <= 0) {
+      $errors['quantite'] = "La quantité doit être un nombre positif.";
+    } elseif ($values['quantite'] > $maxQuantite) {
+      $errors['quantite'] = "Quantité insuffisante en stock (Max: $maxQuantite).";
+    }
+
+    $ok = true;
+    foreach ($errors as $m) { if ($m !== '') { $ok = false; break; } }
+
+    return ['ok' => $ok, 'errors' => $errors, 'values' => $values];
+  }
 }
