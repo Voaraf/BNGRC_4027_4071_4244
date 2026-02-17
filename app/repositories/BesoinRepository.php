@@ -6,18 +6,19 @@ class BesoinRepository {
         $this->pdo = $pdo;
     }
 
-    public function insererBesoin($description, $quantite, $type, $lieu) {
-        $description_normalisee = strtolower(trim($description));
+    public function insererBesoin($id_produit, $quantite, $lieu) {
         $st = $this->pdo->prepare(
-            "INSERT INTO BNGRC_besoin (type_besoin, besoin, quantite_besoin, id_ville) VALUES (?, ?, ?, ?)"
+            "INSERT INTO BNGRC_besoin (id_produit, quantite_besoin, id_ville) VALUES (?, ?, ?)"
         );
-        return $st->execute([$type, $description_normalisee, $quantite, $lieu]);
+        return $st->execute([$id_produit, $quantite, $lieu]);
     }
 
     public function getAllBesoinVille() {
         $st = $this->pdo->prepare(
-            "SELECT b.besoin, t.nom_type, v.nom_ville, v.id_ville, b.id_besoin, b.quantite_besoin FROM BNGRC_besoin b 
-            JOIN BNGRC_type t ON b.type_besoin = t.id_type 
+            "SELECT p.nom_produit as besoin, t.nom_type, v.nom_ville, v.id_ville, b.id_besoin, b.quantite_besoin 
+            FROM BNGRC_besoin b 
+            JOIN BNGRC_produits p ON b.id_produit = p.id_produit
+            JOIN BNGRC_type t ON p.id_type = t.id_type 
             JOIN BNGRC_ville v ON b.id_ville = v.id_ville 
             WHERE t.id_type != 3 AND b.quantite_besoin > 0"
         );

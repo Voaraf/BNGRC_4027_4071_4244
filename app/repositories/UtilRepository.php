@@ -43,10 +43,11 @@ class UtilRepository{
     }
 
     public function getAllAchats($id_ville = null) {
-        $sql = "SELECT a.id_achat, b.besoin, b.quantite_besoin, t.nom_type, a.montant_total, a.date_achat, v.nom_ville
+        $sql = "SELECT a.id_achat, p.nom_produit as besoin, b.quantite_besoin, t.nom_type, a.montant_total, a.date_achat, v.nom_ville
             FROM BNGRC_achats a
             JOIN BNGRC_besoin b ON a.id_besoin = b.id_besoin
-            JOIN BNGRC_type t ON b.type_besoin = t.id_type
+            JOIN BNGRC_produits p ON b.id_produit = p.id_produit
+            JOIN BNGRC_type t ON p.id_type = t.id_type
             JOIN BNGRC_ville v ON b.id_ville = v.id_ville";
         
         $params = [];

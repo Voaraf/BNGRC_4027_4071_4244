@@ -20,31 +20,36 @@ class AchatsController {
         $pdo = Flight::db();
         $repo = new BesoinRepository($pdo);
         $stockageRepo = new StockageRepository($pdo);
+        $produitRepo = new ProduitRepository($pdo);
+        $achatsRepo = new AchatsRepository($pdo);
+
         $req = Flight::request();
         $input = [
             'besoin_ville' => $req->data->besoin_ville,
-            'quantite' => $req->data->quantite,
-            'type' => $req->data->type
+            'quantite' => $req->data->quantite
         ];
-        $achatsRepo = new AchatsRepository($pdo);
+        
         $res = Validator::validateAchat($input);
         if ($res['ok']) {
-            $achatsRepo->insertAchat($res['values']['besoin_ville'], $res['values']['quantite'], $res['values']['type']);
-            // Récupérer le nom du besoin et le type (ville ignorée pour le stock global)
+            $achatsRepo->insertAchat($res['values']['besoin_ville'], $res['values']['quantite']);
+            
             $besoinDetails = $repo->getBesoinById($res['values']['besoin_ville']);
             if ($besoinDetails) {
-                $stockageRepo->ajouterStock($besoinDetails['besoin'], $besoinDetails['type_besoin'], $res['values']['quantite']);
+                $produit = $produitRepo->getProduitById($besoinDetails['id_produit']);
+                $stockageRepo->ajouterStock($produit['nom_produit'], $produit['id_type'], $res['values']['quantite']);
             }
             Flight::redirect('/achats');
             return;
         }
-        $besoin = $repo->getAllBesoinVille();
+        
+        $utilRepo = new UtilRepository($pdo);
         Flight::render('achats', [
-            'besoin' => $besoin,
+            'besoin' => $repo->getAllBesoinVille(),
+            'villes' => $utilRepo->getAllVille(),
+            'data' => $utilRepo->getAllAchats(),
             'values' => $res['values'],
             'errors' => $res['errors']
         ]);
-        
     }
 
 }

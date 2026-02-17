@@ -22,38 +22,45 @@ require_once __DIR__ . '/header.php';
                     </p>
                     <form action="/traitementinsererBesoin" method="post">
                         <div class="row g-3">
-                             <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="besoin" name="besoin" placeholder="Ny Filanao">
-                                    <label for="besoin">Filana</label>
+                                   <select name="id_produit" class="form-select" id="id_produit">
+                                        <option value="">Safidio ny vokatra</option>
+                                        <?php foreach($produits as $produit) { ?>
+                                            <option value="<?= $produit['id_produit'] ?>" <?= (isset($values['id_produit']) && $values['id_produit'] == $produit['id_produit']) ? 'selected' : '' ?>><?= htmlspecialchars($produit['nom_produit']) ?> (<?= htmlspecialchars($produit['nom_type']) ?>)</option> 
+                                        <?php } ?>
+                                    </select>
+                                    <label for="id_produit">Vokatra (Produit)</label>
+                                    <?php if(!empty($errors['id_produit'])) { ?>
+                                        <small class="text-danger"><?= $errors['id_produit'] ?></small>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                   <select name="ville" class="form-select">
+                                   <select name="ville" class="form-select" id="ville">
+                                        <option value="">Safidio ny tanàna</option>
                                         <?php foreach($data as $ville) { ?>
-                                            <option value="<?= $ville['id_ville'] ?>"><?= $ville['nom_ville'] ?></option> 
+                                            <option value="<?= $ville['id_ville'] ?>" <?= (isset($values['ville']) && $values['ville'] == $ville['id_ville']) ? 'selected' : '' ?>><?= $ville['nom_ville'] ?></option> 
                                         <?php } ?>
                                     </select>
+                                    <label for="ville">Tanàna (Ville)</label>
+                                    <?php if(!empty($errors['ville'])) { ?>
+                                        <small class="text-danger"><?= $errors['ville'] ?></small>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="quantite" name="quantite" placeholder="Subject">
-                                    <label for="quantite">Habetsahany</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <select name="type" class="form-select">
-                                        <?php foreach($types as $type) { ?>
-                                            <option value="<?= $type['id_type'] ?>"><?= $type['nom_type'] ?></option> 
-                                        <?php } ?>
-                                    </select>
+                                    <input type="number" step="0.01" class="form-control" id="quantite" name="quantite" placeholder="Nombre" value="<?= htmlspecialchars($values['quantite'] ?? '') ?>">
+                                    <label for="quantite">Habetsahany (Quantité)</label>
+                                    <?php if(!empty($errors['quantite'])) { ?>
+                                        <small class="text-danger"><?= $errors['quantite'] ?></small>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary py-3 px-4" type="submit">Insérer</button>
+                                <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Hampiditra</button>
                             </div>
                         </div>
                     </form>

@@ -3,24 +3,21 @@ session_start();
 class DonController {
 
   public static function showinsererDon() {
-
     $pdo = Flight::db();
-    $repo = new UtilRepository($pdo);
-    $data = $repo->getAllVille();
-    $types = $repo->getType();
+    $utilRepo = new UtilRepository($pdo);
+    $produitRepo = new ProduitRepository($pdo);
+    
     Flight::render('insererDon', [
-      'data' => $data,
-      'types' => $types,
+      'data' => $utilRepo->getAllVille(),
+      'produits' => $produitRepo->getAllProduits(),
       'values' => [
-        'type_donation' => '',
+        'id_produit' => '',
         'donneur' => '',
-        'donation' => '',
         'quantite_donnee' => '' 
       ],
       'errors' => [
-        'type_donation' => '',
+        'id_produit' => '',
         'donneur' => '',
-        'donation' => '',
         'quantite_donnee' => ''
       ],
       'success' => false
@@ -31,13 +28,13 @@ class DonController {
     $pdo  = Flight::db();
     $repo = new DonRepository($pdo);
     $stockageRepo = new StockageRepository($pdo);
+    $produitRepo = new ProduitRepository($pdo);
 
     $req = Flight::request();
 
     $input = [
-        'type_donation' => $req->data->type_donation,
+        'id_produit' => $req->data->id_produit,
         'donneur' => $req->data->donneur,
-        'donation' => $req->data->donation,
         'quantite_donnee' => $req->data->quantite_donnee,
     ];
 
@@ -45,14 +42,18 @@ class DonController {
 
     if ($res['ok']) {
         $repo->insertDon($res['values']);
-        // Stock global : on ne passe plus la ville
-        $stockageRepo->ajouterStock($res['values']['donation'], $res['values']['type_donation'], $res['values']['quantite_donnee']);
+        
+        $produit = $produitRepo->getProduitById($res['values']['id_produit']);
+        $stockageRepo->ajouterStock($produit['nom_produit'], $produit['id_type'], $res['values']['quantite_donnee']);
 
-        Flight::redirect('/dashboard');
+        Flight::redirect('/');
         return;
     }
 
+    $utilRepo = new UtilRepository($pdo);
     Flight::render('insererDon', [
+      'data' => $utilRepo->getAllVille(),
+      'produits' => $produitRepo->getAllProduits(),
       'values' => $res['values'],
       'errors' => $res['errors'],
       'success' => false

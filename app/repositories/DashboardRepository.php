@@ -8,8 +8,9 @@ class DashboardRepository {
 
     public function obtenirDonneesTableauDeBord() {
         $st = $this->pdo->prepare(
-            "SELECT b.type_besoin, b.besoin, b.quantite_besoin, v.nom_ville
+            "SELECT p.id_type as type_besoin, p.nom_produit as besoin, b.quantite_besoin, v.nom_ville
              FROM BNGRC_besoin b
+             JOIN BNGRC_produits p ON b.id_produit = p.id_produit
              JOIN BNGRC_ville v ON b.id_ville = v.id_ville"
         );
         $st->execute();
@@ -18,9 +19,10 @@ class DashboardRepository {
 
     public function obterBesoinsParVilleId($id) {
         $st = $this->pdo->prepare(
-            "SELECT b.type_besoin, b.besoin, b.quantite_besoin, t.icone_type, t.nom_type
+            "SELECT p.id_type as type_besoin, p.nom_produit as besoin, b.quantite_besoin, t.icone_type, t.nom_type
              FROM BNGRC_besoin b
-            JOIN BNGRC_type t ON b.type_besoin = t.id_type
+             JOIN BNGRC_produits p ON b.id_produit = p.id_produit
+             JOIN BNGRC_type t ON p.id_type = t.id_type
              WHERE b.id_ville = ? AND b.quantite_besoin > 0"
         );
         $st->execute([$id]);
@@ -48,18 +50,20 @@ class DashboardRepository {
 
     public function obtenirDistributionsParVilleId($id) {
         $st = $this->pdo->prepare(
-            "SELECT d.quantite_donnee as quantite, d.date_distribution as date_mouv, b.besoin, t.nom_type, 'Distribution' as source
+            "SELECT d.quantite_donnee as quantite, d.date_distribution as date_mouv, p.nom_produit as besoin, t.nom_type, 'Distribution' as source
              FROM BNGRC_distribution d
              JOIN BNGRC_besoin b ON d.id_besoin = b.id_besoin
-             JOIN BNGRC_type t ON b.type_besoin = t.id_type
+             JOIN BNGRC_produits p ON b.id_produit = p.id_produit
+             JOIN BNGRC_type t ON p.id_type = t.id_type
              WHERE b.id_ville = ?
              
              UNION ALL
              
-             SELECT a.quantite_achetee as quantite, a.date_achat as date_mouv, b.besoin, t.nom_type, 'Achat' as source
+             SELECT a.quantite_achetee as quantite, a.date_achat as date_mouv, p.nom_produit as besoin, t.nom_type, 'Achat' as source
              FROM BNGRC_achats a
              JOIN BNGRC_besoin b ON a.id_besoin = b.id_besoin
-             JOIN BNGRC_type t ON b.type_besoin = t.id_type
+             JOIN BNGRC_produits p ON b.id_produit = p.id_produit
+             JOIN BNGRC_type t ON p.id_type = t.id_type
              WHERE b.id_ville = ?
              
              ORDER BY date_mouv DESC"

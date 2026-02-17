@@ -40,7 +40,7 @@ class DistributionController {
                 $stockRepo->retirerStock($res['values']['besoin'], $besoin['type_besoin'], $res['values']['quantite']);
                 $besoinRepo = new BesoinRepository($pdo);
                 $besoinRepo->diminuerQuantiteBesoin($besoin['id_besoin'], $res['values']['quantite']);
-                Flight::redirect('/dashboard');
+                Flight::redirect('/');
                 return;
             } else {
                 $res['errors']['besoin'] = "Aucun besoin trouvé avec ce nom.";

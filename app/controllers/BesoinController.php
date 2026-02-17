@@ -9,42 +9,46 @@ class BesoinController {
         $req = Flight::request();
 
         $input = [
-            'besoin' => $req->data->besoin,
+            'id_produit' => $req->data->id_produit,
             'ville' => $req->data->ville,
-            'quantite' => $req->data->quantite,
-            'type' => $req->data->type,
+            'quantite' => $req->data->quantite
         ];
 
         $res = Validator::validateBesoin($input);
 
         if ($res['ok']) {
-            $besoin = $repo->insererBesoin($res['values']['besoin'], $res['values']['quantite'], $res['values']['type'], $res['values']['ville']);
+            $ok = $repo->insererBesoin($res['values']['id_produit'], $res['values']['quantite'], $res['values']['ville']);
 
-            if ($besoin) {
-                Flight::redirect('/dashboard');
+            if ($ok) {
+                Flight::redirect('/');
                 return;
             }
 
-            $res['errors']['besoin'] = 'Erreur lors de l\'insertion du besoin.';
+            $res['errors']['id_produit'] = 'Erreur lors de l\'insertion du besoin.';
         }
-
+        
+        $utilRepo = new UtilRepository($pdo);
+        $produitRepo = new ProduitRepository($pdo);
+        
         Flight::render('insererBesoin', [
+            'data' => $utilRepo->getAllVille(),
+            'produits' => $produitRepo->getAllProduits(),
             'values' => $res['values'],
             'errors' => $res['errors'],
             'success' => false
         ]);
     }
+
     public static function showinsererbesoin() {
-        
         $pdo = Flight::db();
-        $repo = new UtilRepository($pdo);
-        $data = $repo->getAllVille();
-        $types = $repo->getType();
+        $utilRepo = new UtilRepository($pdo);
+        $produitRepo = new ProduitRepository($pdo);
+        
         Flight::render('insererBesoin', [
-            'data' => $data,
-            'types' => $types,
-            'values' => ['besoin' => '', 'quantite' => '', 'type' => '', 'ville' => ''],
-            'errors' => ['besoin' => '', 'quantite' => '', 'type' => '', 'ville' => ''],
+            'data' => $utilRepo->getAllVille(),
+            'produits' => $produitRepo->getAllProduits(),
+            'values' => ['id_produit' => '', 'quantite' => '', 'ville' => ''],
+            'errors' => ['id_produit' => '', 'quantite' => '', 'ville' => ''],
             'success' => false
         ]);
     }

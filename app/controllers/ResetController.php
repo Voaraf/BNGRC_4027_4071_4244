@@ -11,7 +11,7 @@ class ResetController {
             
             $pdo->commit();
             
-            Flight::redirect('/dashboard');
+            Flight::redirect('/');
         } catch (Exception $e) {
             $pdo->rollBack();
             Flight::error($e);

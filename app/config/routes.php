@@ -16,6 +16,9 @@ require_once __DIR__ . '/../repositories/AchatsRepository.php';
 require_once __DIR__ . '/../controllers/ResetController.php';
 require_once __DIR__ . '/../controllers/VenteController.php';
 require_once __DIR__ . '/../repositories/VenteRepository.php';
+require_once __DIR__ . '/../controllers/ProduitController.php';
+require_once __DIR__ . '/../repositories/ProduitRepository.php';
+
 
 Flight::route('GET /', ['DashboardController', 'afficherTableauDeBord']);
 
@@ -40,3 +43,6 @@ Flight::route('GET /reset', ['ResetController', 'resetDatabase']);
 
 Flight::route('GET /vente', ['VenteController', 'showVente']);
 Flight::route('POST /traitementinsererVente', ['VenteController', 'insererVente']);
+
+Flight::route('GET /insererProduit', ['ProduitController', 'showInsererProduit']);
+Flight::route('POST /traitementinsererProduit', ['ProduitController', 'insererProduit']);
