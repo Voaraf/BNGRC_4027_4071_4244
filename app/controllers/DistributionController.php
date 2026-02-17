@@ -48,7 +48,9 @@ class DistributionController {
         }
         
         $data = $repoUtil->getAllVille();
+        $st = $stockRepo->viewStock();
         Flight::render('insererDistribution', [
+            'stock' => $st,
             'data' => $data,
             'values' => $res['values'],
             'errors' => $res['errors'],

@@ -43,4 +43,4 @@ SELECT
     s.nom_besoin, s.total_quantite
 FROM v_stockage s
 LEFT JOIN BNGRC_besoin b ON s.nom_besoin = b.besoin
-WHERE b.besoin IS NULL;
+WHERE b.besoin IS NULL AND s.id_type != (SELECT id_type FROM BNGRC_type WHERE nom_type = 'Argent');

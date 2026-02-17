@@ -147,5 +147,12 @@ INSERT INTO BNGRC_ville (nom_ville, image_ville) VALUES
     montant_total DECIMAL(10,2),
     date_vente TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_stock) REFERENCES BNGRC_stock(id_stock) ON DELETE CASCADE
-    
+
+  );
+
+  CREATE TABLE IF NOT EXISTS BNGRC_remise (
+    id_remise INT AUTO_INCREMENT PRIMARY KEY,
+    type_remise VARCHAR(255) NOT NULL,
+    pourcentage DECIMAL(5,2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   );

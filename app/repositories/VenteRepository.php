@@ -12,4 +12,9 @@ class VenteRepository {
         $st->execute();
         return $st->fetchAll(PDO::FETCH_ASSOC);   
     }
+
+    public function insertVente($id_stock, $quantite_vendue, $montant_total) {
+        $st = $this->pdo->prepare("INSERT INTO BNGRC_vente (id_stock, quantite_vendue, montant_total) VALUES (?, ?, ?)");
+        return $st->execute([$id_stock, $quantite_vendue, $montant_total]);
+    }
 }
