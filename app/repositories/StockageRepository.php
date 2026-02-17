@@ -47,4 +47,10 @@ class StockageRepository {
         $stmt = $this->pdo->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function viewStock() {
+        $stmt = $this->pdo->prepare('SELECT * FROM v_stockage');
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

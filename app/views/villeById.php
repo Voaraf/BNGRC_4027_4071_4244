@@ -26,9 +26,9 @@ require_once __DIR__ . '/header.php';
                                 <div class="btn-square bg-light mb-4 d-flex align-items-center justify-content-center" style="height:60px;width:60px;">
                                     <img src="<?= htmlspecialchars($imgSrc) ?>" alt="icone" style="max-width:38px;max-height:38px;" />
                                 </div>
-                                <h3><?= htmlspecialchars($besoin['nom_type']) ?></h3>
+                                <h3><?= htmlspecialchars($besoin['besoin']) ?></h3>
                                 <p class="mb-2"><strong>Habetsahana: </strong><?= htmlspecialchars($besoin['quantite_besoin']) ?></p>
-                                <p class="mb-2"><strong>Zavatra hilaina: </strong><?= htmlspecialchars($besoin['besoin']) ?></p>
+                                <p class="mb-2"><strong>Sokajy: </strong><?= htmlspecialchars($besoin['nom_type']) ?></p>
                                 <a href=""></a>
                             </div>
                         </div>

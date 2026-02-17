@@ -16,4 +16,6 @@ class DistributionRepository {
         $st = $this->pdo->prepare("INSERT INTO BNGRC_distribution (id_donation, id_besoin, quantite_donnee) VALUES (NULL, ?, ?)");
         return $st->execute([$id_besoin, $quantite]);
     }
+
+    
 }

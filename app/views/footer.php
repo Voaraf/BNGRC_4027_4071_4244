@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Lien</h4>
+                    <h4 class="text-light mb-4">Rohy</h4>
                     <a class="btn btn-link" href="">Mombamomba</a>
                     <a class="btn btn-link" href="">Mifandraisa aminay</a>
                     <a class="btn btn-link" href="">Tolotra ataonay</a>

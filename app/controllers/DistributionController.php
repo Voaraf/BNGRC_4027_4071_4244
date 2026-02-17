@@ -5,8 +5,11 @@ class DistributionController {
         
         $pdo = Flight::db();
         $repo = new UtilRepository($pdo);
+        $stockRepo = new StockageRepository($pdo);
+        $stock = $stockRepo->viewStock();
         $data = $repo->getAllVille();
         Flight::render('insererDistribution', [
+            'stock' => $stock,
             'data' => $data,
             'values' => ['besoin' => '', 'quantite' => '', 'ville' => ''],
             'errors' => ['besoin' => '', 'quantite' => '', 'ville' => ''],

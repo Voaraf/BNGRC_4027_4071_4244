@@ -59,9 +59,19 @@ require_once __DIR__ . '/header.php';
                     </form>
                 </div>
             </div>
+            <br>
+            <div class="row g-4 mb-5">
+                <?php foreach($stock as $stock) { ?>
+                        <div class="col-md-3">
+                            <div class="card p-3">
+                                <h5><?= $stock['nom_besoin'] ?></h5>
+                                <p class="fs-4" id="dons-dispatches"><?= $stock['total_quantite'] ?></p>
+                            </div>
+                        </div>
+                <?php } ?>
+            </div>
         </div>
     </div>
-
 <?php
 require_once __DIR__ . '/footer.php';
 ?>

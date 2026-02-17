@@ -30,3 +30,11 @@ SELECT
         WHERE pu.type = (SELECT type_besoin FROM BNGRC_besoin WHERE id_besoin = d.id_besoin)
         ORDER BY pu.date_mise_a_jour DESC LIMIT 1
     ), 0)), 0) FROM BNGRC_distribution d) as dons_dispatches;
+
+CREATE OR REPLACE VIEW v_stockage AS
+SELECT 
+    nom_besoin,
+    SUM(quantite) AS total_quantite
+FROM BNGRC_stock
+GROUP BY nom_besoin;
+
