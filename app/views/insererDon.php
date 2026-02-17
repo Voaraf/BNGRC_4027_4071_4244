@@ -49,7 +49,7 @@ require_once __DIR__ . '/header.php';
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary py-3 px-4" type="submit">Insérer</button>
+                                <button class="btn btn-primary py-3 px-4" type="submit">Donner</button>
                             </div>
                         </div>
                     </form>

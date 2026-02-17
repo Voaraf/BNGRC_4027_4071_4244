@@ -37,14 +37,13 @@ class DistributionController {
             
             if ($besoin) {
                 $repo->insertDistribution($besoin['id_besoin'], $res['values']['quantite']);
-                $stockRepo->retirerStock($res['values']['besoin'], $res['values']['ville'], $besoin['type_besoin'], $res['values']['quantite']);
+                $stockRepo->retirerStock($res['values']['besoin'], $besoin['type_besoin'], $res['values']['quantite']);
                 $besoinRepo = new BesoinRepository($pdo);
                 $besoinRepo->diminuerQuantiteBesoin($besoin['id_besoin'], $res['values']['quantite']);
-                
                 Flight::redirect('/dashboard');
                 return;
             } else {
-                $res['errors']['besoin'] = "Aucun besoin trouvé avec ce nom dans cette ville.";
+                $res['errors']['besoin'] = "Aucun besoin trouvé avec ce nom.";
             }
         }
         

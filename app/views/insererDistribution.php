@@ -15,10 +15,9 @@ require_once __DIR__ . '/header.php';
                 </div>
                 <div class="col-lg-7 wow fadeIn" data-wow-delay="0.3s">
                    <h3>Azo tokana, tsy mba hala</h3>
-                    <p class="mb-4">Ity pejy ity dia natao hanehoana ireo olona sy toerana tena mila fanampiana. 
-                        Ny fangatahana dia atao amin-kitsim-po sy fahatsorana, 
-                        mba hahafahana mahazo tohana sy fanohanana avy amin’ireo vonona hanampy. 
-                        Miaraka isika no afaka manamaivana ny fahasahiranana
+                    <p class="mb-4">Ny fizarana dia fihetsika feno fitiavana sy firaisankina, 
+                        entina hanampiana ireo sahirana. Na kely aza ny fizarana, 
+                        dia afaka mitondra fiovana lehibe eo amin’ny fiainan’ny hafa.
                     </p>
                     <form action="/traitementinsererDistribution" method="post">
                         <div class="row g-3">

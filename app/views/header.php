@@ -113,10 +113,7 @@
             <div class="row g-0">
                 <div class="col-lg-11">
                     <div class="h-100 py-5 d-flex align-items-center">
-                        <button type="button" class="btn-play" data-bs-toggle="modal"
-                            data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
-                            <span></span>
-                        </button>
+                        <button type="button" class="btn btn-dark rounded-pill py-3 px-5" data-bs-toggle="modal" data-bs-target="#resetModal">Réinitialiser</button>
                         <h3 class="ms-5 mb-0">Miaraka isika afaka manangana tontolo iray izay ahafahan’ny tsirairay mivoatra sy mahomby</h3>
                     </div>
                 </div>
@@ -124,6 +121,27 @@
                     <div class="h-100 w-100 bg-secondary d-flex align-items-center justify-content-center">
                         <span class="text-white" style="transform: rotate(-90deg);">Ampidino</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="resetModal" tabindex="-1" aria-labelledby="resetModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-dark text-white border-0 py-3">
+                    <h5 class="modal-title" id="resetModalLabel">
+                        <i class="fas fa-exclamation-triangle me-2 text-warning"></i>
+                        Fanamarihana
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <h4 class="mb-3">Tena ho fafana ve?</h4>
+                </div>
+                <div class="modal-footer border-0 pb-4 d-flex justify-content-center">
+                    <button type="button" class="btn btn-light rounded-pill px-4 me-2" data-bs-dismiss="modal">Tsia</button>
+                    <a href="/reset" class="btn btn-dark rounded-pill px-4">Eny, Fafao</a>
                 </div>
             </div>
         </div>

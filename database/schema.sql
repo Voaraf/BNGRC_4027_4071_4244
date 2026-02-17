@@ -52,7 +52,20 @@ INSERT INTO BNGRC_ville (nom_ville, image_ville) VALUES
   (3, 3, 'argent', 7000),
   (1, 1, 'sucre', 450),
   (2, 2, 'sable', 400),
-  (3, 3, 'argent', 9000);
+  (3, 3, 'argent', 9000),
+  (1, 1, 'huile', 300);
+
+  INSERT INTO BNGRC_donation (type_donation, donneur, donation, quantite_donnee) VALUES
+  (1, 'John Doe', 'riz', 50),
+  (2, 'Jane Smith', 'brique', 20),
+  (3, 'Alice Johnson', 'argent', 1000),
+  (1, 'Bob Brown', 'légumes', 30),
+  (2, 'Charlie Davis', 'bois', 15),
+  (3, 'Eve Wilson', 'argent', 2000),
+  (1, 'Frank Miller', 'sucre', 100),
+  (2, 'Grace Lee', 'sable', 150),
+  (3, 'Hank Taylor', 'argent', 3000),
+  (1, 'Ivy Anderson', 'huile', 80);
 
   CREATE TABLE IF NOT EXISTS BNGRC_donation (
     id_donation INT AUTO_INCREMENT PRIMARY KEY,
@@ -125,4 +138,12 @@ INSERT INTO BNGRC_ville (nom_ville, image_ville) VALUES
     id_ville INT,
     date_maj TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (id_type) REFERENCES BNGRC_type(id_type) ON DELETE CASCADE
+  );
+
+  CREATE TABLE IF NOR EXISTS BNGRC_remise (
+    id_remise INT AUTO_INCREMENT PRIMARY KEY,
+    id_besoin INT,
+    quantite_remise DECIMAL(10,2),
+    date_remise TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_besoin) REFERENCES BNGRC_besoin(id_besoin) ON DELETE CASCADE
   );

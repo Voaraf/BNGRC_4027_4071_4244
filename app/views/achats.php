@@ -19,24 +19,6 @@ require_once __DIR__ . '/header.php';
                         Eto no ahafahanao misafidy sy mividy ireo entana ilaina mba hanohanana 
                         ny asa sy ny fanampiana atao
                     </p>
-                    
-                    <form action="/achats" method="get" class="mb-4">
-                        <div class="row g-3">
-                            <div class="col-md-8">
-                                <select name="ville" class="form-select" onchange="this.form.submit()">
-                                    <option value="">Toutes les villes</option>
-                                    <?php foreach ($villes as $v): ?>
-                                        <option value="<?= $v['id_ville'] ?>" <?= (isset($selected_ville) && $selected_ville == $v['id_ville']) ? 'selected' : '' ?>>
-                                            <?= $v['nom_ville'] ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <button class="btn btn-secondary w-100" type="submit">Filtrer</button>
-                            </div>
-                        </div>
-                    </form>
 
                     <form action="/traitementinsererAchat" method="post">
                         <div class="row g-3">
