@@ -14,7 +14,7 @@ require_once __DIR__ . '/header.php';
                         tabindex="0"></img>
                 </div>
                 <div class="col-lg-7 wow fadeIn" data-wow-delay="0.3s">
-                   <h3>Azo tokana, tsy mba hala</h3>
+                   <h3>Hazo tokana, tsy mba hala</h3>
                     <p class="mb-4">Ny fizarana dia fihetsika feno fitiavana sy firaisankina, 
                         entina hanampiana ireo sahirana. Na kely aza ny fizarana, 
                         dia afaka mitondra fiovana lehibe eo amin’ny fiainan’ny hafa.
