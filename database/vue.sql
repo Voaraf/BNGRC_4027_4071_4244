@@ -40,7 +40,13 @@ GROUP BY nom_besoin;
 
 CREATE OR REPLACE VIEW v_verifierSiStockDispo AS
 SELECT
-    s.nom_besoin, s.total_quantite
-FROM v_stockage s
-LEFT JOIN BNGRC_besoin b ON s.nom_besoin = b.besoin
-WHERE b.besoin IS NULL AND s.id_type != (SELECT id_type FROM BNGRC_type WHERE nom_type = 'Argent');
+    st.id_stock,
+    st.nom_besoin,
+    st.quantite as total_quantite,
+    st.id_type,
+    t.nom_type,
+    t.icone_type
+FROM BNGRC_stock st
+JOIN BNGRC_type t ON st.id_type = t.id_type
+LEFT JOIN BNGRC_besoin b ON st.nom_besoin = b.besoin
+WHERE b.besoin IS NULL AND st.id_type != (SELECT id_type FROM BNGRC_type WHERE nom_type = 'Argent');

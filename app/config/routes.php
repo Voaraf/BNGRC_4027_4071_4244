@@ -43,3 +43,4 @@ Flight::route('POST /traitementinsererDistribution', ['DistributionController', 
 Flight::route('GET /reset', ['ResetController', 'resetDatabase']);
 
 Flight::route('GET /vente', ['VenteController', 'showVente']);
+Flight::route('POST /traitementinsererVente', ['VenteController', 'insererVente']);
