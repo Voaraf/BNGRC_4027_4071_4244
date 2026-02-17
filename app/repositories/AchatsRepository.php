@@ -18,7 +18,23 @@ class AchatsRepository {
     }
 
     public function insertAchat($id_besoin, $quantite_achetee) {
-        $montant_total = $quantite_achetee * $this->getPrixUnitaireByType($id_besoin);
+        $st_type = $this->pdo->prepare("SELECT type_besoin FROM BNGRC_besoin WHERE id_besoin = ?");
+        $st_type->execute([$id_besoin]);
+        $res_type = $st_type->fetch(PDO::FETCH_ASSOC);
+        
+        if (!$res_type) {
+            return false;
+        }
+        
+        $type_besoin = $res_type['type_besoin'];
+
+        $prix_unitaire = $this->getPrixUnitaireByType($type_besoin);
+        
+        if ($prix_unitaire === null) {
+            $prix_unitaire = 0;
+        }
+
+        $montant_total = $quantite_achetee * $prix_unitaire;
         
         $st = $this->pdo->prepare(
             "INSERT INTO BNGRC_achats (id_besoin, quantite_achetee, montant_total) VALUES (?, ?, ?)"

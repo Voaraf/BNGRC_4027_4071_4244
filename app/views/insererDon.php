@@ -9,8 +9,8 @@ require_once __DIR__ . '/header.php';
                     <h1 class="display-6 mb-4 wow fadeIn" data-wow-delay="0.2s">Misaotra mialoha !
                     </h1>
                     <img class="w-100"
-                        src="assets/img/donn.png"
-                        style="height: 425px; border:0;" allowfullscreen="" aria-hidden="false"
+                        src="assets/img/don.png"
+                        style="border:0;" allowfullscreen="" aria-hidden="false"
                         tabindex="0"></img>
                 </div>
                 <div class="col-lg-7 wow fadeIn" data-wow-delay="0.3s">

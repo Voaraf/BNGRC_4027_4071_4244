@@ -7,8 +7,13 @@ class StockageRepository {
 
     public function getStockByDetails($nom_besoin, $id_ville, $id_type) {
         $nom_besoin = strtolower(trim($nom_besoin));
-        $stmt = $this->pdo->prepare('SELECT * FROM BNGRC_stock WHERE nom_besoin = ? AND id_ville = ? AND id_type = ?');
-        $stmt->execute([$nom_besoin, $id_ville, $id_type]);
+        if ($id_ville === null) {
+            $stmt = $this->pdo->prepare('SELECT * FROM BNGRC_stock WHERE nom_besoin = ? AND id_ville IS NULL AND id_type = ?');
+            $stmt->execute([$nom_besoin, $id_type]);
+        } else {
+            $stmt = $this->pdo->prepare('SELECT * FROM BNGRC_stock WHERE nom_besoin = ? AND id_ville = ? AND id_type = ?');
+            $stmt->execute([$nom_besoin, $id_ville, $id_type]);
+        }
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 

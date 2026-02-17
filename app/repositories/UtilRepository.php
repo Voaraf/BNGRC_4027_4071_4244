@@ -46,15 +46,23 @@ class UtilRepository{
 
     }
 
-    public function getAllAchats() {
-        $st = $this->pdo->prepare(
-            "SELECT a.id_achat, b.besoin, b.quantite_besoin, t.nom_type, a.montant_total, a.date_achat
+    public function getAllAchats($id_ville = null) {
+        $sql = "SELECT a.id_achat, b.besoin, b.quantite_besoin, t.nom_type, a.montant_total, a.date_achat, v.nom_ville
             FROM BNGRC_achats a
             JOIN BNGRC_besoin b ON a.id_besoin = b.id_besoin
             JOIN BNGRC_type t ON b.type_besoin = t.id_type
-            ORDER BY a.date_achat DESC"
-        );
-        $st->execute();
+            JOIN BNGRC_ville v ON b.id_ville = v.id_ville";
+        
+        $params = [];
+        if ($id_ville) {
+            $sql .= " WHERE b.id_ville = ?";
+            $params[] = $id_ville;
+        }
+
+        $sql .= " ORDER BY a.date_achat DESC";
+        
+        $st = $this->pdo->prepare($sql);
+        $st->execute($params);
         return $st->fetchAll(PDO::FETCH_ASSOC);
     }
 

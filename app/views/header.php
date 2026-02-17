@@ -96,25 +96,18 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav me-auto">
-                        <a href="/dashboard" class="nav-item nav-link">Dashboard</a>
-                        <a href="/insererDon" class="nav-item nav-link">Donation</a>
-                        <a href="/insererBesoin" class="nav-item nav-link">Besoin</a>
-                        <a href="/achats" class="nav-item nav-link">Achats</a>
-                        <a href="/insererDistribution" class="nav-item nav-link">Distribution</a>
-
-                       <!-- <a href="donation.html" class="nav-item nav-link">Donation</a>
-                        <div class="nav-item dropdown">
-                            <a href="#!" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu bg-light m-0">
-                                <a href="event.html" class="dropdown-item">Event</a>
-                                <a href="feature.html" class="dropdown-item">Feature</a>
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
-                            </div>
-                        </div>showInsererBesoin
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        -->
+                        <?php 
+                        $current_page = $_SERVER['REQUEST_URI'];
+                        function is_active($path, $current_page) {
+                            return (strpos($current_page, $path) === 0) ? 'active' : '';
+                        }
+                        ?>
+                        <a href="/dashboard" class="nav-item nav-link <?= is_active('/dashboard', $current_page) ?>">Dashboard</a>
+                        <a href="/villes" class="nav-item nav-link <?= is_active('/villes', $current_page) ?>">Villes</a>
+                        <a href="/insererDon" class="nav-item nav-link <?= is_active('/insererDon', $current_page) ?>">Donation</a>
+                        <a href="/insererBesoin" class="nav-item nav-link <?= is_active('/insererDon', $current_page) ?>">Besoin</a>
+                        <a href="/achats" class="nav-item nav-link <?= is_active('/achats', $current_page) ?>">Achats</a>
+                        <a href="/insererDistribution" class="nav-item nav-link <?= is_active('/insererDistribution', $current_page) ?>">Distribution</a>
                     </div>
                     <div class="d-none d-lg-flex ms-auto">
                         <a class="btn btn-square btn-dark ms-2" href="https://x.com/BngrcMada"><i class="fab fa-twitter"></i></a>

@@ -103,10 +103,32 @@ class Validator {
     elseif (!is_numeric($values['quantite']) || $values['quantite'] <= 0) {
       $errors['quantite'] = "La quantité doit être un nombre positif.";
     }
-    if ($values['type'] === '') $errors['type'] = "Le type est obligatoire.";
-    elseif (!is_numeric($values['type'])) {
-      $errors['type'] = "Le type doit être un identifiant numérique.";
+
+    $ok = true;
+    foreach ($errors as $m) { if ($m !== '') { $ok = false; break; } }
+
+    return ['ok' => $ok, 'errors' => $errors, 'values' => $values];
+  }
+
+  public static function validateDistribution(array $input) {
+    $errors = [
+      'besoin' => '',
+      'quantite' => '',
+      'ville' => ''
+    ];
+
+    $values = [
+      'besoin' => trim((string)($input['besoin'] ?? '')),
+      'quantite' => trim((string)($input['quantite'] ?? '')),
+      'ville' => trim((string)($input['ville'] ?? ''))
+    ];
+
+    if ($values['besoin'] === '') $errors['besoin'] = "Le besoin est obligatoire.";
+    if ($values['quantite'] === '') $errors['quantite'] = "La quantité est obligatoire.";
+    elseif (!is_numeric($values['quantite']) || $values['quantite'] <= 0) {
+      $errors['quantite'] = "La quantité doit être un nombre positif.";
     }
+    if ($values['ville'] === '') $errors['ville'] = "La ville est obligatoire.";
 
     $ok = true;
     foreach ($errors as $m) { if ($m !== '') { $ok = false; break; } }

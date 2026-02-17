@@ -36,6 +36,50 @@ require_once __DIR__ . '/header.php';
                     </div>
                 </div>
             </div>
+
+            <div class="row g-5 mt-5">
+                <div class="col-md-12 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="service-title">
+                        <p class="fs-5 mb-0">Ireo tohana voaray (Achats sy Distributions)</p>
+                        <h2 class="display-6 mb-4">Tantaran'ny fanampiana tonga tamin'ny fomba ofisialy</h2>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th>Loharano</th>
+                                    <th>Zavatra voaray</th>
+                                    <th>Karazany</th>
+                                    <th>Habetsahany</th>
+                                    <th>Daty</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php if (isset($distributions) && !empty($distributions)) { 
+                                    foreach($distributions as $dist) { ?>
+                                    <tr>
+                                        <td>
+                                            <span class="badge <?= $dist['source'] === 'Achat' ? 'bg-info' : 'bg-success' ?>">
+                                                <?= htmlspecialchars($dist['source']) ?>
+                                            </span>
+                                        </td>
+                                        <td><?= htmlspecialchars($dist['besoin']) ?></td>
+                                        <td><?= htmlspecialchars($dist['nom_type']) ?></td>
+                                        <td><?= htmlspecialchars($dist['quantite']) ?></td>
+                                        <td><?= date('d/m/Y H:i', strtotime($dist['date_mouv'])) ?></td>
+                                    </tr>
+                                <?php } } else { ?>
+                                    <tr>
+                                        <td colspan="5" class="text-center">Mbola tsy nisy fanomezana voaray tamin'ny fomba ofisialy.</td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 <?php

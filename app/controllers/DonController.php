@@ -45,8 +45,7 @@ class DonController {
 
     if ($res['ok']) {
         $repo->insertDon($res['values']);
-        $stockageRepo->ajouterStock($res['values']['donation'], $res['values']['id_ville'], $res['values']['type_donation'], $res['values']['quantite_donnee']);
-
+        $stockageRepo->ajouterStock($res['values']['donation'], null, $res['values']['type_donation'], $res['values']['quantite_donnee']);
 
         Flight::redirect('/dashboard');
         return;
