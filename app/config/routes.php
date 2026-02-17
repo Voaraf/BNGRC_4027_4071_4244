@@ -15,6 +15,8 @@ require_once __DIR__ . '/../repositories/DistributionRepository.php';
 require_once __DIR__ . '/../repositories/StockageRepository.php';
 require_once __DIR__ . '/../repositories/AchatsRepository.php';
 require_once __DIR__ . '/../controllers/ResetController.php';
+require_once __DIR__ . '/../controllers/VenteController.php';
+require_once __DIR__ . '/../repositories/VenteRepository.php';
 
 Flight::route('GET /', ['LoginController', 'showLogin']);
 Flight::route('POST /login', ['LoginController', 'postLogin']);
@@ -39,3 +41,5 @@ Flight::route('GET /insererDistribution', ['DistributionController', 'showInsere
 Flight::route('POST /traitementinsererDistribution', ['DistributionController', 'insererDistribution']);    
 
 Flight::route('GET /reset', ['ResetController', 'resetDatabase']);
+
+Flight::route('GET /vente', ['VenteController', 'showVente']);

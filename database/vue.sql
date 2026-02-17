@@ -40,7 +40,7 @@ GROUP BY nom_besoin;
 
 CREATE OR REPLACE VIEW v_verifierSiStockDispo AS
 SELECT
-    s.nom_besoin
+    s.nom_besoin, s.total_quantite
 FROM v_stockage s
 LEFT JOIN BNGRC_besoin b ON s.nom_besoin = b.besoin
 WHERE b.besoin IS NULL;

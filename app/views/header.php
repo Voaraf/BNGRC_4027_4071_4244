@@ -98,6 +98,7 @@
                         <a href="/insererBesoin" class="nav-item nav-link <?= is_active('/insererBesoin', $current_page) ?>">Besoin</a>
                         <a href="/achats" class="nav-item nav-link <?= is_active('/achats', $current_page) ?>">Achats</a>
                         <a href="/insererDistribution" class="nav-item nav-link <?= is_active('/insererDistribution', $current_page) ?>">Distribution</a>
+                        <a href="/vente" class="nav-item nav-link <?= is_active('/vente', $current_page) ?>">Vente</a>
                     </div>
                     <div class="d-none d-lg-flex ms-auto">
                         <a class="btn btn-square btn-dark ms-2" href="https://x.com/BngrcMada"><i class="fab fa-twitter"></i></a>
