@@ -38,3 +38,9 @@ SELECT
 FROM BNGRC_stock
 GROUP BY nom_besoin;
 
+CREATE OR REPLACE VIEW v_verifierSiStockDispo AS
+SELECT
+    s.nom_besoin
+FROM v_stockage s
+LEFT JOIN BNGRC_besoin b ON s.nom_besoin = b.besoin
+WHERE b.besoin IS NULL;
