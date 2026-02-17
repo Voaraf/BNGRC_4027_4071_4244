@@ -5,7 +5,6 @@ require_once __DIR__ . '/header.php';
 <body>
     <div class="container-fluid py-5">
         <div class="container">
-            <!-- Recap Section -->
             <div class="text-center mx-auto wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
                 <p class="section-title bg-white text-center text-primary px-3">Récapitulatif</p>
                 <h1 class="display-6 mb-4">Statistiques Globales</h1>
@@ -37,12 +36,9 @@ require_once __DIR__ . '/header.php';
                     </div>
                 </div>
             </div>
-
-            <!-- City Section Removed (Moved to villes.php) -->
         </div>
     </div>
 
-    <!-- Script for AJAX Recap -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         function loadRecap() {
@@ -57,10 +53,8 @@ require_once __DIR__ . '/header.php';
                 .catch(error => console.error('Error fetching recap:', error));
         }
 
-        // Load on start
         loadRecap();
 
-        // Button listener
         document.getElementById('btn-refresh-recap').addEventListener('click', loadRecap);
     });
     </script>

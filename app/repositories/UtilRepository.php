@@ -31,10 +31,6 @@ class UtilRepository{
         
     }
 
-   
-
-    
-
     public function argentDisponible() {
         $st = $this->pdo->prepare(
             "SELECT SUM(d.quantite_donnee) AS total_argent_globale
@@ -65,6 +61,4 @@ class UtilRepository{
         $st->execute($params);
         return $st->fetchAll(PDO::FETCH_ASSOC);
     }
-
-    
 }

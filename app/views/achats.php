@@ -20,7 +20,6 @@ require_once __DIR__ . '/header.php';
                         ny asa sy ny fanampiana atao
                     </p>
                     
-                    <!-- Filter Form -->
                     <form action="/achats" method="get" class="mb-4">
                         <div class="row g-3">
                             <div class="col-md-8">
