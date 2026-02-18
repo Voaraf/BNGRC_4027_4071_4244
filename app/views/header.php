@@ -92,7 +92,7 @@
                             return (strpos($current_page, $path) === 0) ? 'active' : '';
                         }
                         ?>
-                        <a href="/dashboard" class="nav-item nav-link <?= is_active('/', $current_page) ?>">Dashboard</a>
+                        <a href="/" class="nav-item nav-link <?= is_active('/', $current_page) ?>">Dashboard</a>
                         <a href="/villes" class="nav-item nav-link <?= is_active('/villes', $current_page) ?>">Villes</a>
                         <a href="/insererProduit" class="nav-item nav-link <?= is_active('/insererProduit', $current_page) ?>">Produit</a>
                         <a href="/insererDon" class="nav-item nav-link <?= is_active('/insererDon', $current_page) ?>">Donation</a>
